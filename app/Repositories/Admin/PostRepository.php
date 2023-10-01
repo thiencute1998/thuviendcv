@@ -4,8 +4,6 @@ namespace App\Repositories\Admin;
 
 use App\Models\BookVersion;
 use App\Models\Post;
-use App\Models\PostTag;
-use App\Models\Tag;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -34,7 +32,7 @@ class PostRepository extends BaseRepository {
             $status = $searchParams['status'];
             $query->where('status', '=', "$status");
         }
-        $query->with('category')->with('tags');
+        $query->with('category');
         $query->orderBy('updated_at', 'desc');
         $posts = $query->paginate(10);
         return view('admin.pages.post.index', compact('posts'));
@@ -56,14 +54,7 @@ class PostRepository extends BaseRepository {
                 $params['image'] = $this->saveFile($request->file('image'), $this->pathImage);
             }
             $post->fill($params);
-
-            if ($post->save()) {
-                if (isset($params['tags'])) {
-                    foreach ($params['tags'] as $data) {
-                        $post->tags()->attach($data);
-                    }
-                }
-            }
+            $post->save();
 
             //Hiện trạng các bản sách
             $total = $request['book_code'];
@@ -97,7 +88,6 @@ class PostRepository extends BaseRepository {
     public function edit($id) {
         $query = $this->model->where('id', $id)
             ->with('category')
-            ->with('tags')
             ->with('bookVersion');
         return $query->firstOrFail();
     }
@@ -111,14 +101,7 @@ class PostRepository extends BaseRepository {
                 $params['image'] = $this->saveFile($request->file('image'), $this->pathImage);
             }
             $post->fill($params);
-            if ($post->save()) {
-                $post->tags()->detach();
-                if (isset($params['tags'])) {
-                    foreach ($params['tags'] as $data) {
-                        $post->tags()->attach($data);
-                    }
-                }
-            }
+            $post->save();
 
             //Hiện trạng các bản sách
             BookVersion::where('posts_id', $id)->delete();
@@ -154,7 +137,6 @@ class PostRepository extends BaseRepository {
         DB::beginTransaction();
         try {
             $this->model->where('id', $id)->delete();
-            PostTag::where('post_id', $id)->delete();
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();

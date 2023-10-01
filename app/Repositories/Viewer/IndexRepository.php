@@ -141,23 +141,6 @@ class IndexRepository extends BaseRepository {
         });
     }
 
-    public function getTag($tag) {
-        $query = Tag::where('status', 1);
-        $query->where('slug', $tag);
-        $query->with('posts');
-        $tag = $query->firstOrFail();
-        $posts = collect();
-        if($tag) {
-            $queryPost = Post::where('status', 1);
-            $queryPost->whereHas('tags', function($q) use($tag){
-                $q->where('tag_id', $tag->id);
-            });
-            $queryPost->with('category');
-            $posts = $queryPost->paginate(10);
-        }
-        return ['tag'=> $tag, 'posts'=> $posts];
-    }
-
     public function getVideo($video) {
         $query = Video::where('slug', $video);
         return $query->firstOrFail();

@@ -10,7 +10,7 @@ class Post extends Model
     use HasFactory;
 
     // Table tin tuc
-    protected $table = 'posts';
+    protected $table = 'books';
 
     protected $fillable = ['name', 'slug', 'status', 'content', 'image', 'category_id', 'views', 'author', 'title', 'keywords', 'description','bookcontents'];
 
@@ -18,9 +18,7 @@ class Post extends Model
     public function category() {
         return $this->belongsTo(Category::class, 'category_id', 'id');
     }
-    public function tags(){
-        return $this->belongsToMany(Tag::class, 'post_tags', 'post_id', 'tag_id');
-    }
+
     public function bookVersion() {
         return $this->hasMany(BookVersion::class, 'posts_id', 'id');
     }
