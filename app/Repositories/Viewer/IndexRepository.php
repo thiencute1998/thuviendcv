@@ -7,6 +7,7 @@ use App\Models\CalenderEvent;
 use App\Models\Category;
 use App\Models\EmailSignUp;
 use App\Models\Homepage;
+use App\Models\NewEvent;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Video;
@@ -20,26 +21,55 @@ class IndexRepository extends BaseRepository {
     }
 
     public function index() {
-        $query = $this->model->query();
-        $query->where('status', 1);
-        $query->with('categories.posts');
-        $query->orderBy('order', 'asc');
-        $homes = $query->get();
-        $videos = $this->getVideoIndex();
-        return view('viewer.pages.index', compact('homes', 'videos'));
+        $categories = Category::where('status', 1)->where('level', 1)->get();
+        $newBooks = Post::where('status', 1)->orderBy('created_at', 'asc')->take(10)->get();
+        $greatBooks = Post::where('status', 1)->take(10)->get(); // Lay chua dung
+        $news = NewEvent::where('status', 1)->take(10)->where('new_type', 1)->get();
+        $videos = NewEvent::where('status', 1)->take(10)->where('new_type', 2)->get();
+        return view('viewer.pages.index', compact('categories', 'newBooks', 'greatBooks', 'news', 'videos'));
+    }
+    public function getCate($cate) {
+        $parentCate = Category::where('status', 1)->where('slug', $cate)->first();
+        $categories = collect([]);
+        if($parentCate) {
+            $categories = Category::where('status', 1)
+                ->withCount('posts')
+                ->where('parent_id', $parentCate->id)->get();
+        }
+        return ['parentCate'=> $parentCate, 'categories'=> $categories];
     }
 
+    public function getBooks($category) {
+        return Post::where('status', 1)
+            ->where('category_id', $category->id)
+            ->paginate(10);
+    }
+
+    public function getBookDetail($slug) {
+        $query = Post::where('status', 1)
+            ->where('slug', $slug);
+        $query->with('bookVersion');
+
+        return $query->first();
+    }
+
+    public function getAllGreatBook() {
+        // chua dung
+        return Post::where('status', 1)
+
+            ->paginate(10);
+    }
+
+
+
+
+
+
+    // ko dung
     public function getVideoIndex() {
         $query = Video::where('status', 1);
         $query->orderBy('created_at', 'desc');
         return $query->take(4)->get();
-    }
-    public function getCate($cate) {
-        $query = Category::where('status', 1);
-        $query->where('slug', $cate);
-        $query->with('posts');
-        $category = $query->first();
-        return $category;
     }
 
     public function paginatePost($category) {

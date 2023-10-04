@@ -2,15 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\ConfigController;
-use App\Http\Controllers\Admin\PhotoEditingController;
-use App\Http\Controllers\Admin\VirtualStagingController;
 
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\CalendarController;
 use App\Http\Controllers\Admin\BannerController;
@@ -21,14 +17,7 @@ use App\Http\Controllers\Admin\TabHomeController;
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\NewController;
 
-use App\Http\Controllers\Viewer\HomeController;
-use App\Http\Controllers\PhotoEditingViewerController;
-use App\Http\Controllers\VirtualStagingViewerController;
-use App\Http\Controllers\FloorPlanViewerController;
-use App\Http\Controllers\VideoSlideShowViewerController;
-use App\Http\Controllers\Viewer\ContactUsController;
-use App\Http\Controllers\Viewer\HowToWorkController as HowToWorkViewerController;
-use Illuminate\Support\Facades\Storage;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,10 +35,10 @@ use Illuminate\Support\Facades\Storage;
 //    return view('admin.pages.product.products', compact('products'));
 //});
 
-Route::get('/login', [AuthController::class, 'index'])->name('login-index');
+Route::get('admin/login', [AuthController::class, 'index'])->name('login-index');
 
-Route::post('/login', [AuthController::class, 'login'])->name('login-auth');
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout-auth');
+Route::post('admin/login', [AuthController::class, 'login'])->name('login-auth');
+Route::get('admin/logout', [AuthController::class, 'logout'])->name('logout-auth');
 
 
 Route::prefix('admin')->middleware(['checkLogin'])->group(function () {
@@ -184,7 +173,19 @@ Route::prefix('admin')->middleware(['checkLogin'])->group(function () {
 });
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
-//Route::get('category/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
+Route::get('register', [\App\Http\Controllers\Viewer\UserController::class, 'getRegister'])->name('get-register-user');
+Route::post('register', [\App\Http\Controllers\Viewer\UserController::class, 'register'])->name('post-register-user');
+Route::get('login', [\App\Http\Controllers\Viewer\UserController::class, 'getLogin'])->name('get-login-user');
+Route::post('login', [\App\Http\Controllers\Viewer\UserController::class, 'login'])->name('post-login-user');
+
+Route::get('great/books',[IndexController::class, 'getAllGreatBook'])->name('get-all-great-book');
+Route::get('get-book-borrow', [IndexController::class, 'getBookBorrow'])->name('get-book-borrow');
+
+
+Route::get('/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
+
+
+// Chua dung
 Route::get('event/{event}', [IndexController::class, 'getEventCalendar'])->name('get-event-calendar');
 Route::post('/get-event', [IndexController::class, 'getEvent'])->name('get-event');
 Route::get('/events', [IndexController::class, 'events'])->name('events');

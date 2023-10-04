@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Viewer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Post;
 use App\Repositories\Viewer\IndexRepository;
 use Illuminate\Http\Request;
 
@@ -20,12 +22,43 @@ class IndexController extends Controller
         return $this->repository->index();
     }
 
-//    public function getCate($cate) {
-//        $data = $this->repository->getCate($cate);
-//        $category = $data['category'];
-//        $posts = $data['posts'];
-//        return view('viewer.pages.category', compact('category', 'posts'));
-//    }
+    public function getCate($cate) {
+        $bookDetail = $this->repository->getBookDetail($cate);
+        if ($bookDetail) {
+            return view('viewer.pages.book_detail', compact('bookDetail'));
+        } else {
+            $category = Category::where('status', 1)->where('slug', $cate)->firstOrFail();
+            if ($category) {
+                $books = $this->repository->getBooks($category);
+                if (count($books)) {
+                    return view('viewer.pages.books', compact('books'));
+                } else {
+                    $data = $this->repository->getCate($cate);
+                    $parentCate = $data['parentCate'];
+                    $categories = $data['categories'];
+                    return view('viewer.pages.category', compact('parentCate', 'categories'));
+                }
+            }
+        }
+    }
+
+    public function getAllGreatBook() {
+        $greatBooks = $this->repository->getAllGreatBook();
+        return view('viewer.pages.book_great_all', compact('greatBooks'));
+    }
+
+    public function getBookBorrow() {
+        return view('viewer.pages.book_borrow');
+    }
+
+
+
+
+
+
+
+
+
 
     public function getPost($post) {
         $category = $this->repository->getCate($post);
