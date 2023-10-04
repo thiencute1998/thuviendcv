@@ -73,7 +73,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Giới thiệu</label>
                                             <textarea id="gioithieu" class="form-control" name="gioithieu" type="text">
-                                            {{ $about->gioithieu }}
+                                            {{ $about ? $about->gioithieu : ""}}
                                         </textarea>
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Liên hệ</label>
                                             <textarea id="lienhe" class="form-control" name="lienhe" type="text">
-                                            {{ $about->lienhe }}
+                                            {{ $about ? $about->lienhe : "" }}
                                         </textarea>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Bản đồ</label>
                                             <textarea id="bando" class="form-control" name="bando" type="text" >
-                                            {{ $about->bando }}
+                                            {{ $about ? $about->bando : "" }}
                                         </textarea>
                                         </div>
                                     </div>
@@ -100,7 +100,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Hướng dẫn</label>
                                             <textarea id="huongdan" class="form-control" name="huongdan" type="text" >
-                                            {{ $about->huongdan }}
+                                            {{ $about ? $about->huongdan : "" }}
                                         </textarea>
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Nội quy</label>
                                             <textarea id="noiquy" class="form-control" name="noiquy" type="text" >
-                                            {{ $about->noiquy }}
+                                            {{ $about ? $about->noiquy : "" }}
                                         </textarea>
                                         </div>
                                     </div>

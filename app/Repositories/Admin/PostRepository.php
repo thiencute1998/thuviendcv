@@ -20,6 +20,7 @@ class PostRepository extends BaseRepository {
 
     public function index($searchParams) {
         $query = $this->model->query();
+        $status = '';
         if (isset($searchParams['search'])) {
             $name = $searchParams['search'];
             $query->where('name', 'like', "$name%");
@@ -35,7 +36,7 @@ class PostRepository extends BaseRepository {
         $query->with('category');
         $query->orderBy('updated_at', 'desc');
         $posts = $query->paginate(10);
-        return view('admin.pages.post.index', compact('posts'));
+        return view('admin.pages.post.index', compact('posts', 'status'));
     }
 
     /**
@@ -63,7 +64,7 @@ class PostRepository extends BaseRepository {
                 if(isset($request->book_code[$i])) {
                     $arrInsert = new BookVersion([
                         'posts_id' => $post->id,
-                        'book_code' => $request->book_code[$i],
+                        'book_code' => $post->id.$request->book_code[$i],
                         'book_publisher' => $request->book_publisher[$i],
                         'book_yearpublication' => $request->book_yearpublication[$i],
                         'book_size' => $request->book_size[$i],

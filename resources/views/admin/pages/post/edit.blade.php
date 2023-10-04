@@ -96,7 +96,7 @@
                                                 @if($post->bookVersion->count())
                                                     @foreach($post->bookVersion as $key=> $books)
                                                 <div class="row form-group rTableRow">
-                                                    <div class="col-md-2"><input type="text" class="form-control" name="book_code[]" value="{{ $books->book_code }}"></div>
+                                                    <div class="col-md-2"><input type="text" class="form-control" name="book_code[]" value="{{ $books->book_code }}" disabled></div>
                                                     <div class="col-md-2"><input type="text" class="form-control" name="book_publisher[]" value="{{ $books->book_publisher }}"></div>
                                                     <div class="col-md-2"><input type="number" class="form-control" name="book_yearpublication[]" value="{{ $books->book_yearpublication }}"></div>
                                                     <div class="col-md-1"><input type="number" class="form-control" name="book_size[]" value="{{ $books->book_size }}"></div>

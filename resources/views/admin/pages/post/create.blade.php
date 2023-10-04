@@ -88,7 +88,10 @@
                                                 </div>
                                                 <div id="p_scents">
                                                 <div class="row form-group rTableRow">
-                                                    <div class="col-md-2"><input type="text" class="form-control" name="book_code[]"></div>
+                                                    <div class="col-md-2">
+                                                        <input type="hidden" class="form-control" name="book_code[]" value="10">
+                                                        <input type="text" class="form-control" name="book_hidden[]" value="10" disabled>
+                                                    </div>
                                                     <div class="col-md-2"><input type="text" class="form-control" name="book_publisher[]"></div>
                                                     <div class="col-md-2"><input type="number" class="form-control" name="book_yearpublication[]"></div>
                                                     <div class="col-md-1"><input type="number" class="form-control" name="book_size[]"></div>
@@ -251,6 +254,8 @@
                 var addhtml =$('#p_scents').html();
                 $(addhtml).appendTo(scntDiv);
                 i++;
+                var j= i +8;
+                $("#p_scents1 .rTableRow:last-child div:first-child input").attr("value",j);
                 return false;
             });
 

@@ -42,9 +42,9 @@
                                 <span> Trạng thái: </span>
                                 <select class="form-control" name="status">
                                     <option value="">Chọn trạng thái</option>
-                                    <option value="1">Hoạt động</option>
-                                    <option value="2">Nổi bật</option>
-                                    <option value="0">Không hoạt động</option>
+                                    <option value="1" @if ($status==1) selected @endif>Hoạt động</option>
+                                    <option value="2" @if ($status==2) selected @endif>Nổi bật</option>
+                                    <option value="0" @if ($status==0) selected @endif>Không hoạt động</option>
                                 </select>
                             </div>
 {{--                            <div class="col-md-4">--}}
