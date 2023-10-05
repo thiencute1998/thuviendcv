@@ -70,12 +70,40 @@
                                             </select>
                                         </div>
                                     </div>
+{{--                                    <div class="row form-group">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <label for="product-content" class="col-form-label">Giới thiệu sách</label>--}}
+{{--                                            <textarea class="form-control" name="content" type="text" id="content">--}}
+{{--                                                {{$post->content}}--}}
+{{--                                            </textarea>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="row form-group">
-                                        <div class="col-md-12">
-                                            <label for="product-content" class="col-form-label">Giới thiệu sách</label>
-                                            <textarea class="form-control" name="content" type="text" id="content">
-                                                {{$post->content}}
-                                            </textarea>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Phụ đề</label>
+                                            <input type="text" name="book_subtitle" value="{{$post->book_subtitle}}" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Tác giả</label>
+                                            <input type="text" name="book_author" value="{{$post->book_author}}" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Ký hiệu tác giả</label>
+                                            <input type="text" name="book_authorsymbol" value="{{$post->book_authorsymbol}}" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">DDC</label>
+                                            <input type="text" name="category_name" value="{{$post->category_name}}" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Ngôn ngữ</label>
+                                            <input type="text" name="book_language" value="{{$post->book_language}}" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Số cuốn</label>
+                                            <input type="number" name="book_number" value="{{$post->book_number}}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row form-group">

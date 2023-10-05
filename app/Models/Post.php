@@ -12,7 +12,8 @@ class Post extends Model
     // Table tin tuc
     protected $table = 'books';
 
-    protected $fillable = ['name', 'slug', 'status', 'content', 'image', 'category_id', 'views', 'author', 'title', 'keywords', 'description','bookcontents'];
+    protected $fillable = ['name', 'slug', 'status', 'content', 'image', 'category_id', 'views', 'author', 'title', 'keywords', 'description','bookcontents'
+        , 'book_subtitle', 'book_author', 'book_authorsymbol', 'category_name', 'book_language', 'book_number'];
 
     public $timestamps = true;
     public function category() {
