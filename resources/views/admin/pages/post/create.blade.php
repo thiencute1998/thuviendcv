@@ -66,10 +66,42 @@
                                             </select>
                                         </div>
                                     </div>
+{{--                                    <div class="row form-group">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <label for="product-content" class="col-form-label">Giới thiệu sách</label>--}}
+{{--                                            <textarea class="form-control" name="content" type="text" id="content" rows="6"> {{$dfpost['content']}}</textarea>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="row form-group">
-                                        <div class="col-md-12">
-                                            <label for="product-content" class="col-form-label">Giới thiệu sách</label>
-                                            <textarea class="form-control" name="content" type="text" id="content" rows="6"> {{$dfpost['content']}}</textarea>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Phụ đề</label>
+                                            <input type="text" name="book_subtitle" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Tác giả</label>
+                                            <input type="text" name="book_author" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Ký hiệu tác giả</label>
+                                            <input type="text" name="book_authorsymbol" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">DDC</label>
+                                            <input type="text" name="category_name" class="form-control">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="services" class="col-form-label">Ngôn ngữ</label>
+                                            <input type="text" name="book_language" class="form-control">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="services" class="col-form-label">Tập - Số</label>
+                                            <input type="text" name="book_episode" class="form-control">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="services" class="col-form-label">Số cuốn</label>
+                                            <input type="number" name="book_number" value="{{$dfpost['book_number']}}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row form-group">
