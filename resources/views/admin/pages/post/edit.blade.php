@@ -101,7 +101,11 @@
                                             <label for="services" class="col-form-label">Ngôn ngữ</label>
                                             <input type="text" name="book_language" value="{{$post->book_language}}" class="form-control">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
+                                            <label for="services" class="col-form-label">Tập - Số</label>
+                                            <input type="text" name="book_episode" value="{{$post->book_episode}}" class="form-control">
+                                        </div>
+                                        <div class="col-md-2">
                                             <label for="services" class="col-form-label">Số cuốn</label>
                                             <input type="number" name="book_number" value="{{$post->book_number}}" class="form-control">
                                         </div>
