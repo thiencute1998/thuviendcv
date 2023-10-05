@@ -1,5 +1,12 @@
 @extends('viewer.layouts.master')
 @section('main-content')
+    <style type="text/css">
+        .show-cookie-message {
+            display: none;
+        }
+    </style>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <section class="bread-crumb margin-bottom-0">
         <div class="container">
             <div class="row">
@@ -19,18 +26,19 @@
     </section>
 
     <div class="container" itemscope="" itemtype="http://schema.org/Blog">
+        <div class="alert alert-success show-cookie-message"></div>
 
         <div class="row">
             <section class="products-view products-view-grid">
                 <div class="image-main-info">
                     <div class="hatp">
-                        <img src="https://thuviendcv.gpbuichu.org/media/tacpham/hinhanh/1679889391_15151bc.jpg"
+                        <img src="{{asset('upload/admin/post/image/' . $bookDetail->image)}}"
                              width="100%"/>
                     </div>
                     <div class="main-info">
                         <table class="tbl-book-info">
                             <tr>
-                                <td class="tentp" colspan="2">{{$bookDetail->name}}</td>
+                                <td class="tentp" colspan="2" data-value="{{$bookDetail->name}}" data-slug="{{$bookDetail->slug}}">{{$bookDetail->name}}</td>
                             </tr>
                             <tr>
                                 <td class="reg-content">Nguyên tác:</td>
@@ -38,7 +46,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="reg-content">Tác giả:</td>
+                                <td class="tentg" data-value="{{$bookDetail->author}}">Tác giả:</td>
                                 <td>{{$bookDetail->author}}</td>
                             </tr>
                             <tr>
@@ -46,7 +54,7 @@
                                 <td>
                                     NHI<br/></td>
                             </tr>
-                            <tr class="reg-content">
+                            <tr class="ddc" data-value="1">
                                 <td>DDC:</td>
                                 <td>253.05 - Ấn phẩm định kỳ về mục vụ Kitô giáo</td>
                             </tr>
@@ -107,12 +115,9 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="2">
-                                                    <form
-                                                        action="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/muonsach/id/617BC0015151/">
-                                                        <button type="submit" value="Mược sách" class="btn-muonsach">
-                                                            Mượn sách
-                                                        </button>
-                                                    </form>
+                                                    <button type="submit" value="Mược sách" class="btn-muonsach" data-value="{{$version->book_code}}">
+                                                        Mượn sách
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -123,7 +128,7 @@
                     </div>
                 </div>
                 <div class="clear-both"></div>
-                <div id="add-to-wishlist"><span id="add-to-wishlist-btn">» Thêm vào danh sách tác phẩm yêu thích</span>
+                <div id="add-to-wishlist"><span id="add-to-wishlist-btn" data-id="{{$bookDetail->id}}">» Thêm vào danh sách tác phẩm yêu thích</span>
                 </div>
                 <div id="wl-message"></div>
                 <div class="mucluc" style="clear: both; margin-top: 20px">
@@ -133,8 +138,7 @@
                         </ul>
                         <div class="tab">
                             <div id="tab-1" class="tab-content-1">
-
-                                Nội dung mục lục
+                                {!! $bookDetail->bookcontents !!}
                             </div>
 
                         </div>
@@ -145,139 +149,30 @@
                         <span>Các tác phẩm cùng thể loại</span>
                     </div>
                     <ul class="product-list">
+                        @foreach($bookCategories as $bookCate)
+                            <li>
+                                <div>
+                                    <a href="{{route('get-cate', ['cate'=> $bookCate->slug])}}"
+                                       class="tacpham-main-img">
+                                        <img
+                                            src="{{asset('upload/admin/post/image/' . $bookCate->image)}}"
+                                            title="{{$bookCate->name}}">
+                                    </a>
 
-                        <li>
-                            <div>
-                                <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/1709/"
-                                   class="tacpham-main-img">
-                                    <img
-                                        src="https://thuviendcv.gpbuichu.org/media/tacpham/hinhanh/1683278853_15338bc.jpg"
-                                        title="Bản tin hiệp thông: Bốn trăm năm dòng Tên tại Việt Nam">
-                                </a>
-
-                            </div>
-                            <div class="book-infor">
-                                <div class="prodouct-name">
-                                    <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/1709/"
-                                       title="Bản tin hiệp thông: Bốn trăm năm dòng Tên tại Việt Nam">
-                                        Bản tin hiệp thông: Bốn trăm năm dòng Tên tại Việt Nam </a>
                                 </div>
-                                <div> Tác giả: <a
-                                        href="https://thuviendcv.gpbuichu.org/index.php/thuvien/tacgia/listp/id/162/"><span
-                                            class="tacgia">  Nhiều tác giả </span></a></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2837/"
-                                   class="tacpham-main-img">
-                                    <img src="https://thuviendcv.gpbuichu.org/media/tacpham/hinhanh/3586.jpg"
-                                         title="Bản tin hiệp thông">
-                                </a>
-
-                            </div>
-                            <div class="book-infor">
-                                <div class="prodouct-name">
-                                    <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2837/"
-                                       title="Bản tin hiệp thông">
-                                        Bản tin hiệp thông </a>
+                                <div class="book-infor">
+                                    <div class="prodouct-name">
+                                        <a href="{{route('get-cate', ['cate'=> $bookCate->slug])}}"
+                                           title="{{$bookCate->name}}">
+                                            {{$bookCate->name}}</a>
+                                    </div>
+                                    <div> Tác giả: <a
+                                            href="#"><span
+                                                class="tacgia">  {{$bookCate->author}} </span></a></div>
                                 </div>
+                            </li>
+                        @endforeach
 
-
-                                <div> Tác giả: <a
-                                        href="https://thuviendcv.gpbuichu.org/index.php/thuvien/tacgia/listp/id/162/"><span
-                                            class="tacgia">  Nhiều tác giả, Rev. G.A. Elrington </span></a></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2839/"
-                                   class="tacpham-main-img">
-                                    <img src="https://thuviendcv.gpbuichu.org/media/tacpham/hinhanh/3588.jpg"
-                                         title="Bản tin hiệp thông: Sứ mạng và lịch sử truyền giáo">
-                                </a>
-
-                            </div>
-                            <div class="book-infor">
-                                <div class="prodouct-name">
-                                    <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2839/"
-                                       title="Bản tin hiệp thông: Sứ mạng và lịch sử truyền giáo">
-                                        Bản tin hiệp thông: Sứ mạng và lịch sử truyền giáo </a>
-                                </div>
-
-
-                                <div> Tác giả: <a
-                                        href="https://thuviendcv.gpbuichu.org/index.php/thuvien/tacgia/listp/id/162/"><span
-                                            class="tacgia">  Nhiều tác giả </span></a></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2842/"
-                                   class="tacpham-main-img">
-                                    <img src="https://thuviendcv.gpbuichu.org/media/tacpham/hinhanh/3591.jpg"
-                                         title="Bản tin hiệp thông: Hội nghị thường niên của Hồi đồng Giám mục Việt Nam lần thứ XXVI">
-                                </a>
-
-                            </div>
-                            <div class="book-infor">
-                                <div class="prodouct-name">
-                                    <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2842/"
-                                       title="Bản tin hiệp thông: Hội nghị thường niên của Hồi đồng Giám mục Việt Nam lần thứ XXVI">
-                                        Bản tin hiệp thông: Hội nghị thường niên của Hồi đồng Giám mục Việt Nam lần thứ
-                                        XXVI </a>
-                                </div>
-
-
-                                <div> Tác giả: <a
-                                        href="https://thuviendcv.gpbuichu.org/index.php/thuvien/tacgia/listp/id/162/"><span
-                                            class="tacgia">  Nhiều tác giả </span></a></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2854/"
-                                   class="tacpham-main-img">
-                                    <img src="https://thuviendcv.gpbuichu.org/media/tacpham/hinhanh/3602.jpg"
-                                         title="Bản tin hiệp thông: Phương pháp truyền giáo">
-                                </a>
-
-                            </div>
-                            <div class="book-infor">
-                                <div class="prodouct-name">
-                                    <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2854/"
-                                       title="Bản tin hiệp thông: Phương pháp truyền giáo">
-                                        Bản tin hiệp thông: Phương pháp truyền giáo </a>
-                                </div>
-
-
-                                <div> Tác giả: <a
-                                        href="https://thuviendcv.gpbuichu.org/index.php/thuvien/tacgia/listp/id/162/"><span
-                                            class="tacgia">  Nhiều tác giả </span></a></div>
-                            </div>
-                        </li>
-                        <li>
-                            <div>
-                                <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2854/"
-                                   class="tacpham-main-img">
-                                    <img src="https://thuviendcv.gpbuichu.org/media/tacpham/hinhanh/3602.jpg"
-                                         title="Bản tin hiệp thông: Phương pháp truyền giáo">
-                                </a>
-
-                            </div>
-                            <div class="book-infor">
-                                <div class="prodouct-name">
-                                    <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/2854/"
-                                       title="Bản tin hiệp thông: Phương pháp truyền giáo">
-                                        Bản tin hiệp thông: Phương pháp truyền giáo </a>
-                                </div>
-
-
-                                <div> Tác giả: <a
-                                        href="https://thuviendcv.gpbuichu.org/index.php/thuvien/tacgia/listp/id/162/"><span
-                                            class="tacgia">  Nhiều tác giả </span></a></div>
-                            </div>
-                        </li>
 
                     </ul>
                 </div>
@@ -285,4 +180,77 @@
             </section>
         </div>
     </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            const cookieName = 'muonsach';
+            function setCookie(name, value)
+            {
+                let expires;
+                let date = new Date();
+                date.setTime(date.getTime() + (10000*1000));
+                expires = "; expires=" + date.toUTCString();
+                document.cookie = name + "=" + value + expires + "; path=/";
+            };
+
+            function getCookie(cname) {
+                let name = cname + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+
+            $('.btn-muonsach').on('click', function() {
+                let data = getCookie(cookieName);
+                let muonsach = Object.assign([], data ? JSON.parse(data) : []);
+                let code = $(this).data('value');
+                let checkCode = muonsach.some(value=> {
+                    return value.code == code;
+                })
+
+                $('.show-cookie-message').css('display', 'block');
+                if (checkCode) {
+                    $('.show-cookie-message').text("Đã tồn tại tác phẩm trong phiếu sách của bạn.")
+                } else {
+                    let obj = {
+                        code: code,
+                        name: $('.tentp').data('value'),
+                        slug: $('.tentp').data('slug'),
+                        author: $('.tentg').data('value')
+                    }
+                    muonsach.push(obj)
+                    setCookie(cookieName, JSON.stringify(muonsach));
+                    $('.show-cookie-message').text("Bạn đã thêm tác phẩm vào phiếu sách thành công.")
+                }
+            })
+
+            // them vao sach yeu thich
+            $('#add-to-wishlist-btn').on('click', function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{route('add-book-favorite')}}",
+                    type: 'POST',
+                    data: {book_id: $(this).data('id')},
+                    success: function(data) {
+                        alert("Thêm vào sách yêu thích của bạn thành công!")
+                    },
+                    error: function(error) {
+                        alert("Bạn chưa đăng nhập. Vui lòng đăng nhập để thêm sách vào danh mục sách yêu thích của bạn!")
+                    }
+                })
+            });
+        });
+    </script>
 @endsection

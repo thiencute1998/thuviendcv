@@ -55,10 +55,10 @@
                     <div class="col-md-3 hidden-sm hidden-xs">
                         <div class="pk-tk row">
                             <div class="col-md-6">
-                                <button class="btn icon-fallback-text">
+                                <a href="{{route('get-book-borrow')}}" class="btn icon-fallback-text">
                                     <i class="fa fa-book" aria-hidden="true"></i>
                                     Phiếu khách
-                                </button>
+                                </a>
                             </div>
                             <div class="customer-welcome col-md-6">
                                 <button class="btn icon-fallback-text">

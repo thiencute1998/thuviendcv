@@ -25,14 +25,18 @@ class IndexController extends Controller
     public function getCate($cate) {
         $bookDetail = $this->repository->getBookDetail($cate);
         if ($bookDetail) {
-            return view('viewer.pages.book_detail', compact('bookDetail'));
+            // chi tiet sach
+            $bookCategories = $bookDetail->category_id ? $this->repository->getBookByCategory($bookDetail->category_id, $bookDetail->id) : [];
+            return view('viewer.pages.book_detail', compact('bookDetail', 'bookCategories'));
         } else {
             $category = Category::where('status', 1)->where('slug', $cate)->firstOrFail();
             if ($category) {
+                // List sach theo danh muc
                 $books = $this->repository->getBooks($category);
                 if (count($books)) {
                     return view('viewer.pages.books', compact('books'));
                 } else {
+                    // List danh muc
                     $data = $this->repository->getCate($cate);
                     $parentCate = $data['parentCate'];
                     $categories = $data['categories'];
@@ -51,11 +55,18 @@ class IndexController extends Controller
         return view('viewer.pages.book_borrow');
     }
 
+    public function postBookBorrow(Request $request) {
+        return $this->repository->postBookBorrow($request->only('user_borrow', 'book_borrow'));
+    }
 
+    public function getBookFavorite() {
+        $bookFavorites = $this->repository->getBookFavorite();
+        return view('viewer.pages.book_favorite', compact('bookFavorites'));
+    }
 
-
-
-
+    public function addBookFavorite(Request $request) {
+        return $this->repository->addBookFavorite($request->only('book_id'));
+    }
 
 
 

@@ -3,6 +3,8 @@
 namespace App\Repositories\Viewer;
 
 use App\Models\About;
+use App\Models\BookBorrow;
+use App\Models\BookFavorite;
 use App\Models\CalenderEvent;
 use App\Models\Category;
 use App\Models\EmailSignUp;
@@ -10,9 +12,11 @@ use App\Models\Homepage;
 use App\Models\NewEvent;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use App\Models\Video;
 use App\Repositories\BaseRepository;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class IndexRepository extends BaseRepository {
     public function model()
@@ -53,6 +57,14 @@ class IndexRepository extends BaseRepository {
         return $query->first();
     }
 
+    public function getBookByCategory($category_id, $id = null) {
+        $query =  Post::where('status', 1)->where('category_id', $category_id);
+        if ($id) {
+            $query->where('id', '!=' , $id);
+        }
+        return $query->orderBy('created_at', 'asc')->take(10)->get();
+    }
+
     public function getAllGreatBook() {
         // chua dung
         return Post::where('status', 1)
@@ -60,9 +72,79 @@ class IndexRepository extends BaseRepository {
             ->paginate(10);
     }
 
+    public function postBookBorrow($params) {
+        $userParams = $params['user_borrow'];
+        $user = User::where('code', $userParams['user_code'])->first();
+//        if (!$user) {
+//            return "ko co ma doc gia";
+//        } else {
+//            $user = User::where('email', $userParams['user_email'])->first();
+//            if (!$user) {
+//                return "ko co email";
+//            } else {
+                $user = User::where('code', $userParams['user_code'])
+                    ->where('email', $userParams['user_email'])
+                    ->first();
+                if (!$user) {
+                    $error = \Illuminate\Validation\ValidationException::withMessages([
+                        'msg' => 'Mã độc giả hoặc email không tồn tại',
+                    ]);
+                    throw $error;
+                }
+//            }
+//        }
+        DB::beginTransaction();
+        try {
+            $userBorrow = new BookBorrow;
+            $userBorrow->fill($params['user_borrow']);
+            $userBorrow->save();
+            $borrow_id = $userBorrow->id;
+            $arrBook = [];
+            foreach ($params['book_borrow'] as $book) {
+                $arrBook[] = [
+                    "book_borrow_id"=> $borrow_id,
+                    "book_code" => $book['code'],
+                    "book_name"=> $book['name'],
+                    "book_author"=> $book['author'],
+                ];
+            }
 
+            DB::table('book_borrow_details')->insert($arrBook);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            throw $exception;
+        }
+        return 1;
+    }
 
+    public function getBookFavorite() {
+        return BookFavorite::where('user_id', auth()->user()->id)
+            ->with('book')->get();
 
+    }
+
+    public function addBookFavorite($params) {
+        if (auth()->user()) {
+            if(isset($params['book_id'])) {
+                $user_id = auth()->user()->id;
+                $book = BookFavorite::where('book_id', $params['book_id'])
+                    ->where('user_id', $user_id)->first();
+                if(!$book) {
+                    $bookNew = new BookFavorite;
+                    $bookNew->user_id = $user_id;
+                    $bookNew->book_id = $params['book_id'];
+                    $bookNew->save();
+                }
+            }
+        } else {
+            $error = \Illuminate\Validation\ValidationException::withMessages([
+                'msg' => 'Not Authentication',
+            ]);
+            throw $error;
+        }
+        return 1;
+    }
 
 
     // ko dung

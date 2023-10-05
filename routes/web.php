@@ -180,7 +180,9 @@ Route::post('login', [\App\Http\Controllers\Viewer\UserController::class, 'login
 
 Route::get('great/books',[IndexController::class, 'getAllGreatBook'])->name('get-all-great-book');
 Route::get('get-book-borrow', [IndexController::class, 'getBookBorrow'])->name('get-book-borrow');
-
+Route::post('post-book-borrow', [IndexController::class, 'postBookBorrow'])->name('post-book-borrow');
+Route::get('get-book-favorite', [IndexController::class, 'getBookFavorite'])->name('get-book-favorite');
+Route::post('add-book-favorite', [IndexController::class, 'addBookFavorite'])->name('add-book-favorite');
 
 Route::get('/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
 
