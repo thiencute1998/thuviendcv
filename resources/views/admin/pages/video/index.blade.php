@@ -65,7 +65,7 @@
                                                 {{$video->link}}
                                             </td>
                                             <td>
-                                                {{$video->view_count}}
+                                                {{$video->view}}
                                             </td>
                                             <td style="vertical-align: middle;">
                                                 @if($video->status==1)

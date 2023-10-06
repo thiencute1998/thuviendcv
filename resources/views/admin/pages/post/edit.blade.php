@@ -85,7 +85,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Tác giả</label>
-                                            <input type="text" name="book_author" value="{{$post->book_author}}" class="form-control">
+                                            <input type="text" name="author" value="{{$post->author}}" class="form-control">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Ký hiệu tác giả</label>
@@ -128,7 +128,10 @@
                                                 @if($post->bookVersion->count())
                                                     @foreach($post->bookVersion as $key=> $books)
                                                 <div class="row form-group rTableRow">
-                                                    <div class="col-md-2"><input type="text" class="form-control" name="book_code[]" value="{{ $books->book_code }}" disabled></div>
+                                                    <div class="col-md-2">
+                                                        <input type="hidden" class="form-control" name="book_code[]" value="{{ $books->book_code }}">
+                                                        <input type="text" class="form-control" name="book_hidden[]" value="{{ $books->book_code }}" disabled>
+                                                    </div>
                                                     <div class="col-md-2"><input type="text" class="form-control" name="book_publisher[]" value="{{ $books->book_publisher }}"></div>
                                                     <div class="col-md-2"><input type="number" class="form-control" name="book_yearpublication[]" value="{{ $books->book_yearpublication }}"></div>
                                                     <div class="col-md-1"><input type="number" class="form-control" name="book_size[]" value="{{ $books->book_size }}"></div>
@@ -212,18 +215,18 @@
 {{--    <script type="text/javascript" src='{{ asset('richtexteditor/plugins/all_plugins.js') }}'></script>--}}
     <script type="text/javascript">
         //var editor = new RichTextEditor("#content");
-        ClassicEditor
-            .create( document.querySelector( '#content' ), {
-                ckfinder: {
-                    uploadUrl: "{{route('admin-post-ckeditor-upload', ['_token' => csrf_token() ])}}"
-                }
-            } )
-            .then( editor => {
-                editor.ui.view.editable.element.style.height = '250px';
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
+        {{--ClassicEditor--}}
+        {{--    .create( document.querySelector( '#content' ), {--}}
+        {{--        ckfinder: {--}}
+        {{--            uploadUrl: "{{route('admin-post-ckeditor-upload', ['_token' => csrf_token() ])}}"--}}
+        {{--        }--}}
+        {{--    } )--}}
+        {{--    .then( editor => {--}}
+        {{--        editor.ui.view.editable.element.style.height = '250px';--}}
+        {{--    } )--}}
+        {{--    .catch( error => {--}}
+        {{--        console.error( error );--}}
+        {{--    } );--}}
         ClassicEditor
             .create( document.querySelector( '#bookcontents' ), {
                 ckfinder: {

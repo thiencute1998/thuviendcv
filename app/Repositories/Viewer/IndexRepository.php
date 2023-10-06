@@ -30,7 +30,7 @@ class IndexRepository extends BaseRepository {
         $categories = Category::where('status', 1)->where('level', 1)->get();
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
         $newBooks = Post::where('status', 1)->orderBy('created_at', 'asc')->take(10)->get();
-        $greatBooks = Post::where('status', 1)->orderBy('view_count', 'desc')->take(10)->get(); // Lay chua dung
+        $greatBooks = Post::where('status', 1)->orderBy('views', 'desc')->take(10)->get(); // Lay chua dung
         $news = NewEvent::where('status', 1)->take(10)->where('new_type', 1)->get();
         $videos = NewEvent::where('status', 1)->take(10)->where('new_type', 2)->get();
         return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos'));
@@ -71,8 +71,8 @@ class IndexRepository extends BaseRepository {
     public function getAllGreatBook() {
         // chua dung
         return Post::where('status', 1)
-            ->where('view_count', '!=',0)
-            ->orderBy('view_count', 'desc')
+            ->where('views', '!=',0)
+            ->orderBy('views', 'desc')
             ->paginate(10);
     }
 
@@ -153,7 +153,7 @@ class IndexRepository extends BaseRepository {
     public function plusCountBook($params) {
         if (isset($params['book_id'])) {
             $book = Post::where('id', $params['book_id'])->first();
-            Post::where('id', $params['book_id'])->update(['view_count'=> $book->view_count + 1]);
+            Post::where('id', $params['book_id'])->update(['views'=> $book->views + 1]);
         }
     }
 
@@ -450,7 +450,7 @@ class IndexRepository extends BaseRepository {
         if(isset($params['slug'])) {
             $post = Post::where('status', 1)->where('slug', $params['slug'])->first();
             if($post) {
-                $post->view_count = $post->view_count + 1;
+                $post->views = $post->views + 1;
                 $post->save();
             }
         }
@@ -460,10 +460,10 @@ class IndexRepository extends BaseRepository {
         if(isset($params['slug'])) {
             $event = CalenderEvent::where('status', 1)->where('slug', $params['slug'])->first();
             if($event) {
-                if ($event->view_count === null) {
-                    $event->view_count = 0;
+                if ($event->views === null) {
+                    $event->views = 0;
                 } else {
-                    $event->view_count = $event->view_count + 1;
+                    $event->views = $event->views + 1;
                 }
                 $event->save();
             }

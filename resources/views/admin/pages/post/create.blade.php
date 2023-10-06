@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Tác giả</label>
-                                            <input type="text" name="book_author" class="form-control">
+                                            <input type="text" name="author" class="form-control">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Ký hiệu tác giả</label>
@@ -190,18 +190,18 @@
     <script src="{{ asset('assets/admin/js/jquery-ui.min.js') }}"></script>
     <script type="text/javascript">
         // var editor = new RichTextEditor("#content");
-        ClassicEditor
-            .create( document.querySelector( '#content' ), {
-                ckfinder: {
-                    uploadUrl: "{{route('admin-post-ckeditor-upload', ['_token' => csrf_token() ])}}"
-                },
-            } )
-            .then( editor => {
-                editor.ui.view.editable.element.style.height = '250px';
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
+        {{--ClassicEditor--}}
+        {{--    .create( document.querySelector( '#content' ), {--}}
+        {{--        ckfinder: {--}}
+        {{--            uploadUrl: "{{route('admin-post-ckeditor-upload', ['_token' => csrf_token() ])}}"--}}
+        {{--        },--}}
+        {{--    } )--}}
+        {{--    .then( editor => {--}}
+        {{--        editor.ui.view.editable.element.style.height = '250px';--}}
+        {{--    } )--}}
+        {{--    .catch( error => {--}}
+        {{--        console.error( error );--}}
+        {{--    } );--}}
 
         ClassicEditor
             .create( document.querySelector( '#bookcontents' ), {
