@@ -4,13 +4,13 @@ namespace App\Repositories\Admin;
 
 use App\Models\Admin\ProductImage;
 use App\Models\Product;
+use App\Models\Admin;
 use App\Models\User;
 use App\Repositories\BaseRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 
-class UserRepository extends BaseRepository {
+class AdminRepository extends BaseRepository {
     public function model()
     {
         return User::class;
@@ -18,13 +18,13 @@ class UserRepository extends BaseRepository {
 
     public function index($searchParams) {
         $query = $this->model->query();
-        $query->where('role', '=', 2);
+        $query->where('role', '=', 1);
         if (isset($searchParams['search'])) {
             $search = $searchParams['search'];
             $query->where('name', 'like', "$search%");
         }
-        $users = $query->paginate(10);
-        return view('admin.pages.user.users', compact('users'));
+        $admins = $query->paginate(10);
+        return view('admin.pages.admin.admins', compact('admins'));
     }
 
     public function store($params) {
@@ -55,7 +55,7 @@ class UserRepository extends BaseRepository {
     }
 
     public function updatePassword($params) {
-        User::where('id', auth()->user()->id)->update([
+        Admin::where('id', auth()->user()->id)->update([
             'password'=> Hash::make($params['newPassword'])
         ]);
 

@@ -62,6 +62,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($users as $user)
+                                        @if($user->role ==2)
                                         <tr>
                                             <th scope="row">{{$user->name}}</th>
                                             <td>{{$user->image}}</td>
@@ -76,6 +77,7 @@
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endif
                                     @endforeach
 
                                     </tbody>
@@ -97,4 +99,8 @@
             $('.user-message').delay(5000).fadeOut();
         })
     </script>
+    <style>
+        #collapseOne .search-box input{ width: unset !important;}
+        .menu-inner { height: auto !important;}
+    </style>
 @endsection

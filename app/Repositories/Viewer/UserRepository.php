@@ -17,6 +17,7 @@ class UserRepository extends BaseRepository {
     public function register($params) {
         $user = $this->model;
         $params['active'] = 0;
+        $params['role'] = 2;
         $params['password'] = Hash::make($params['password']);
         $user->fill($params);
         $user->save();

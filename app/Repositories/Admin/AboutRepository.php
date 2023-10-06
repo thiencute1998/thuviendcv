@@ -18,7 +18,7 @@ class AboutRepository extends BaseRepository {
     }
 
     public function update($params) {
-        $config = $this->model->where('id', 1)->firstOrFail();
+        $config = $this->model->firstOrFail();
         $config->fill($params);
         $config->save();
     }

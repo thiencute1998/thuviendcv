@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\ConfigController;
+use App\Http\Controllers\Admin\AdminController;
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
@@ -66,6 +67,18 @@ Route::prefix('admin')->middleware(['checkLogin'])->group(function () {
             Route::post('/upload', [UserController::class, 'upload'])->name('users-upload');
             Route::get('/edit-password', [UserController::class, 'editPassword'])->name('edit-password');
             Route::post('/update-password', [UserController::class, 'updatePassword'])->name('update-password');
+        });
+
+        Route::prefix('admins')->group(function () {
+            Route::get('/', [AdminController::class, 'index'])->name('admins');
+            Route::get('/create', [AdminController::class, 'create'])->name('admins-create');
+            Route::post('/store', [AdminController::class, 'store'])->name('admins-store');
+            Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('admins-edit');
+            Route::post('/update/{id}', [AdminController::class, 'update'])->name('admins-update');
+            Route::get('/delete/{id}', [AdminController::class, 'delete'])->name('admins-delete');
+            Route::post('/upload', [AdminController::class, 'upload'])->name('admins-upload');
+            Route::get('/edit-password', [AdminController::class, 'editPassword'])->name('edit-password');
+            Route::post('/update-password', [AdminController::class, 'updatePassword'])->name('update-password');
         });
 
     });
@@ -158,6 +171,10 @@ Route::prefix('admin')->middleware(['checkLogin'])->group(function () {
 
     Route::prefix('email')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\EmailSignUpController::class, 'index'])->name('admin-email');
+    });
+
+    Route::prefix('borrowbook')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\BorrowBookController::class, 'index'])->name('admin-borrowbook');
     });
 
     Route::prefix('new')->group(function() {
