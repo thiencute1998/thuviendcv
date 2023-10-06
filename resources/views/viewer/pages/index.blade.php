@@ -83,16 +83,16 @@
                                             <ul id="nav">
                                                 <li class="nav-item "><i class="fa fa-chevron-right"
                                                                          aria-hidden="true"></i><a
-                                                        class="nav-link" href="/pages/about-us">Giới Thiệu</a></li>
+                                                        class="nav-link" href="{{route('introduce')}}">Giới Thiệu</a></li>
                                                 <li class="nav-item "><i class="fa fa-chevron-right"
                                                                          aria-hidden="true"></i><a
-                                                        class="nav-link" href="/pages/about-us">Nội Quy</a></li>
+                                                        class="nav-link" href="{{route('rule')}}">Nội Quy</a></li>
                                                 <li class="nav-item "><i class="fa fa-chevron-right"
                                                                          aria-hidden="true"></i><a
-                                                        class="nav-link" href="/pages/about-us">Hướng Dẫn</a></li>
+                                                        class="nav-link" href="{{route('instruct')}}">Hướng Dẫn</a></li>
                                                 <li class="nav-item "><i class="fa fa-chevron-right"
                                                                          aria-hidden="true"></i><a
-                                                        class="nav-link" href="/pages/about-us">Liên Hệ</a></li>
+                                                        class="nav-link" href="{{route('contact')}}">Liên Hệ</a></li>
 
 
                                                 <li class="nav-item  has-mega"><i class="fa fa-chevron-right"
@@ -104,13 +104,11 @@
                                                         <div class="level0-wrapper2">
                                                             <div class="nav-block nav-block-center">
                                                                 <ul class="level0">
-
-                                                                    <li class="level1 item"><a
-                                                                            href="/collections/ghe-sofa"><span>Nhà sách tạ quang biểu</span></a>
-                                                                    <li class="level1 item"><a
-                                                                            href="/collections/giuong-ngu"><span>Thư viện ĐH Quốc Gia Hà Nội</span></a>
-                                                                    <li class="level1 item"><a
-                                                                            href="/collections/tham-trai-san"><span>Thư viện ĐH sư phạm Hà nội</span></a>
+                                                                    @foreach($links as $link)
+                                                                        <li class="level1 item">
+                                                                            <a href="{{$link->link}}"><span>{{$link->name}}</span></a>
+                                                                        </li>
+                                                                    @endforeach
 
                                                                 </ul>
                                                             </div>

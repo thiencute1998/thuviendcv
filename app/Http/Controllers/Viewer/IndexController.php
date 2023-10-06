@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Viewer;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Viewer\ContactRequest;
+use App\Models\BookFavorite;
 use App\Models\Category;
 use App\Models\Post;
 use App\Repositories\Viewer\IndexRepository;
@@ -60,17 +62,55 @@ class IndexController extends Controller
     }
 
     public function getBookFavorite() {
-        $bookFavorites = $this->repository->getBookFavorite();
-        return view('viewer.pages.book_favorite', compact('bookFavorites'));
+        if (auth()->user()) {
+            $bookFavorites = BookFavorite::where('user_id', auth()->user()->id)
+                ->with('book')->paginate(10);
+            return view('viewer.pages.book_favorite', compact('bookFavorites'));
+        } else {
+            return redirect()->route('get-login-user');
+        }
+
     }
 
     public function addBookFavorite(Request $request) {
         return $this->repository->addBookFavorite($request->only('book_id'));
     }
 
+    public function plusCountBook(Request $request) {
+        $this->repository->plusCountBook($request->only('book_id'));
+    }
+
+    public function getIntroduce() {
+        return $this->repository->getConfig('introduce');
+    }
+
+    public function getRule() {
+        return $this->repository->getConfig('rule');
+    }
+
+    public function getInstruct() {
+        return $this->repository->getConfig('instruct');
+    }
+
+    public function getContact() {
+        return view('viewer.pages.contact');
+    }
+
+    public function postContact(ContactRequest $request) {
+        $this->repository->postContact($request->only('name', 'email', 'phone', 'content'));
+        return redirect("contact")->with('contact-success', 'Liên hệ thành công!');
+    }
+
+    public function search(Request $request) {
+        $books = $this->repository->search($request->get('typesearch'), $request->get('q'));
+        return view('viewer.pages.search_book', compact('books'));
+    }
 
 
 
+
+
+    // Khong dung
     public function getPost($post) {
         $category = $this->repository->getCate($post);
         if ($category) {

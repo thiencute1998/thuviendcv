@@ -183,24 +183,32 @@ Route::get('get-book-borrow', [IndexController::class, 'getBookBorrow'])->name('
 Route::post('post-book-borrow', [IndexController::class, 'postBookBorrow'])->name('post-book-borrow');
 Route::get('get-book-favorite', [IndexController::class, 'getBookFavorite'])->name('get-book-favorite');
 Route::post('add-book-favorite', [IndexController::class, 'addBookFavorite'])->name('add-book-favorite');
+Route::post('plus-count-book', [IndexController::class, 'plusCountBook'])->name('plus-count-book');
+
+Route::get('/introduce', [IndexController::class, 'getIntroduce'])->name('introduce');
+Route::get('/rule', [IndexController::class, 'getRule'])->name('rule');
+Route::get('/instruct', [IndexController::class, 'getInstruct'])->name('instruct');
+Route::get('/contact', [IndexController::class, 'getContact'])->name('contact');
+Route::post('/post-contact', [IndexController::class, 'postContact'])->name('post-contact');
+Route::get('/search', [IndexController::class, 'search'])->name('search');
 
 Route::get('/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
 
 
 // Chua dung
-Route::get('event/{event}', [IndexController::class, 'getEventCalendar'])->name('get-event-calendar');
-Route::post('/get-event', [IndexController::class, 'getEvent'])->name('get-event');
-Route::get('/events', [IndexController::class, 'events'])->name('events');
-Route::get('/tag/{post}', [IndexController::class, 'getTag'])->name('tag');
-Route::get('/tim-nha-tho-gan-day', [IndexController::class, 'findChurch'])->name('find-church');
-Route::get('/video/{video}', [IndexController::class, 'getVideo'])->name('get-video');
-Route::get('/danh-sach-giao-hat-xu-ho', [IndexController::class, 'getMap'])->name('get-map');
-Route::get('/{post}', [IndexController::class, 'getPost'])->name('get-post');
-Route::post('/search-post', [IndexController::class, 'searchPost'])->name('search-post');
-Route::get('/search-all-post/{post}', [IndexController::class, 'searchAllPost'])->name('search-all-post');
-Route::post('sign-up-email', [IndexController::class, 'signUpEmail'])->name('sign-up-email');
-Route::post('/plus-view-post', [IndexController::class, 'plusViewPost'])->name('plus-view-post');
-Route::post('/plus-view-event', [IndexController::class, 'plusViewEvent'])->name('plus-view-event');
+//Route::get('event/{event}', [IndexController::class, 'getEventCalendar'])->name('get-event-calendar');
+//Route::post('/get-event', [IndexController::class, 'getEvent'])->name('get-event');
+//Route::get('/events', [IndexController::class, 'events'])->name('events');
+//Route::get('/tag/{post}', [IndexController::class, 'getTag'])->name('tag');
+//Route::get('/tim-nha-tho-gan-day', [IndexController::class, 'findChurch'])->name('find-church');
+//Route::get('/video/{video}', [IndexController::class, 'getVideo'])->name('get-video');
+//Route::get('/danh-sach-giao-hat-xu-ho', [IndexController::class, 'getMap'])->name('get-map');
+//Route::get('/{post}', [IndexController::class, 'getPost'])->name('get-post');
+//Route::post('/search-post', [IndexController::class, 'searchPost'])->name('search-post');
+//Route::get('/search-all-post/{post}', [IndexController::class, 'searchAllPost'])->name('search-all-post');
+//Route::post('sign-up-email', [IndexController::class, 'signUpEmail'])->name('sign-up-email');
+//Route::post('/plus-view-post', [IndexController::class, 'plusViewPost'])->name('plus-view-post');
+//Route::post('/plus-view-event', [IndexController::class, 'plusViewEvent'])->name('plus-view-event');
 
 
 

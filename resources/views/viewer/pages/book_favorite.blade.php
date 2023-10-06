@@ -59,30 +59,7 @@
 
                 </div>
                 <div class="text-xs-right">
-
-                    <nav class="text-center">
-                        <ul class="pagination clearfix">
-
-                            <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
-
-
-
-
-
-                            <li class="active page-item disabled"><a class="page-link" href="javascript:;">1</a></li>
-
-
-
-
-                            <li class="page-item"><a class="page-link" onclick="doSearch(2)" href="javascript:;">2</a></li>
-
-
-
-
-                            <li class="page-item"><a class="page-link" onclick="doSearch(2)" href="javascript:;">»</a></li>
-
-                        </ul>
-                    </nav>
+                    {{$bookFavorites->links()}}
 
                 </div>
 

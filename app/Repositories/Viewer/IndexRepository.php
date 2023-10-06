@@ -7,8 +7,10 @@ use App\Models\BookBorrow;
 use App\Models\BookFavorite;
 use App\Models\CalenderEvent;
 use App\Models\Category;
+use App\Models\Contact;
 use App\Models\EmailSignUp;
 use App\Models\Homepage;
+use App\Models\Link;
 use App\Models\NewEvent;
 use App\Models\Post;
 use App\Models\Tag;
@@ -26,11 +28,12 @@ class IndexRepository extends BaseRepository {
 
     public function index() {
         $categories = Category::where('status', 1)->where('level', 1)->get();
+        $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
         $newBooks = Post::where('status', 1)->orderBy('created_at', 'asc')->take(10)->get();
-        $greatBooks = Post::where('status', 1)->take(10)->get(); // Lay chua dung
+        $greatBooks = Post::where('status', 1)->orderBy('view_count', 'desc')->take(10)->get(); // Lay chua dung
         $news = NewEvent::where('status', 1)->take(10)->where('new_type', 1)->get();
         $videos = NewEvent::where('status', 1)->take(10)->where('new_type', 2)->get();
-        return view('viewer.pages.index', compact('categories', 'newBooks', 'greatBooks', 'news', 'videos'));
+        return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos'));
     }
     public function getCate($cate) {
         $parentCate = Category::where('status', 1)->where('slug', $cate)->first();
@@ -68,7 +71,8 @@ class IndexRepository extends BaseRepository {
     public function getAllGreatBook() {
         // chua dung
         return Post::where('status', 1)
-
+            ->where('view_count', '!=',0)
+            ->orderBy('view_count', 'desc')
             ->paginate(10);
     }
 
@@ -118,11 +122,11 @@ class IndexRepository extends BaseRepository {
         return 1;
     }
 
-    public function getBookFavorite() {
-        return BookFavorite::where('user_id', auth()->user()->id)
-            ->with('book')->get();
-
-    }
+//    public function getBookFavorite() {
+//        return BookFavorite::where('user_id', auth()->user()->id)
+//            ->with('book')->get();
+//
+//    }
 
     public function addBookFavorite($params) {
         if (auth()->user()) {
@@ -145,6 +149,58 @@ class IndexRepository extends BaseRepository {
         }
         return 1;
     }
+
+    public function plusCountBook($params) {
+        if (isset($params['book_id'])) {
+            $book = Post::where('id', $params['book_id'])->first();
+            Post::where('id', $params['book_id'])->update(['view_count'=> $book->view_count + 1]);
+        }
+    }
+
+    public function getCategoryLevel($level) {
+        return Category::where('status', 1)->where('level', $level)->get();
+    }
+
+    public function getConfig($view) {
+        $categories = $this->getCategoryLevel(1);
+        $config =  About::first();
+        return view('viewer.pages.' . $view, compact('config', 'categories'));
+    }
+
+    public function postContact($params) {
+        $contact = new Contact;
+        $contact->fill($params);
+        $contact->save();
+    }
+
+    public function search($type, $item) {
+        $query = Post::where('status', 1);
+        if ($type) {
+            switch ($type) {
+                case "tacpham":
+                    if ($item) {
+                        $query->where('name', 'like',"%$item%");
+                    }
+                    break;
+                case "tacgia":
+                    if ($item){
+                        $query->where('author', 'like',"%$item%");
+                    }
+                    break;
+                case "ngonngu":
+                    if ($item){
+                        $query->where('language',$item);
+                    }
+                    break;
+            }
+        }
+
+        $query->orderBy('created_at', 'desc');
+        return $query->paginate(10);
+    }
+
+
+
 
 
     // ko dung

@@ -183,6 +183,10 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            // Tang view count book
+            plusCountViewBook();
+
+
             const cookieName = 'muonsach';
             function setCookie(name, value)
             {
@@ -251,6 +255,24 @@
                     }
                 })
             });
+
+            function plusCountViewBook() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                // Tang view book
+                $.ajax({
+                    url: "{{route('plus-count-book')}}",
+                    type: 'POST',
+                    data: {book_id: $('#add-to-wishlist-btn').data('id')},
+                    success: function(data) {
+                    },
+                    error: function(error) {
+                    }
+                })
+            }
         });
     </script>
 @endsection

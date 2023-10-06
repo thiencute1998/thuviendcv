@@ -23,26 +23,27 @@
                         <div class="css-home"><a href="{{route('index')}}"><i class="fa fa-home" aria-hidden="true"></i></a> Danh mục sách</div>
                     </div>
                     <div class="col-md-6 padding-b">
-                        <form class="input-group search-bar search_form" action="/search" method="get" role="search" id="voice-search">
+                        <form class="input-group search-bar search_form" action="{{route('search')}}" method="get" role="search" id="voice-search">
                             <div class="input-box">
                                 <div class="block-search-1">
                                     <select name="typesearch">
                                         <option value="">Tiêu chí tìm kiếm</option>
-                                        <option value="tacpham">Tên tác phẩm</option>
-                                        <option value="matacpham">Mã tác phẩm</option>
-                                        <option value="tacgia">Tác giả</option>
-                                        <option value="dichgia">Dịch giả</option>
-                                        <option value="ddc">Số phân loại DDC</option>
-                                        <option value="nguyentac">Nguyên tác</option>
-                                        <option value="nhaxb">Nhà xuất bản</option>
-                                        <option value="mucluc">Mục lục</option>
-                                        <option value="sachbo">Sách bộ</option>
-                                        <option value="namxb">Năm xuất bản</option>
-                                        <option value="ngonngu">Ngôn ngữ</option>
+                                        <option value="tacpham" {{request()->get('typesearch') == "tacpham" ? "selected" : ""}}>Tên tác phẩm</option>
+{{--                                        <option value="matacpham">Mã tác phẩm</option>--}}
+                                        <option value="tacgia" {{request()->get('typesearch') == "tacgia" ? "selected" : ""}}>Tác giả</option>
+{{--                                        <option value="dichgia">Dịch giả</option>--}}
+{{--                                        <option value="ddc">Số phân loại DDC</option>--}}
+{{--                                        <option value="nguyentac">Nguyên tác</option>--}}
+{{--                                        <option value="nhaxb">Nhà xuất bản</option>--}}
+{{--                                        <option value="mucluc">Mục lục</option>--}}
+{{--                                        <option value="sachbo">Sách bộ</option>--}}
+{{--                                        <option value="namxb">Năm xuất bản</option>--}}
+                                        <option value="ngonngu" {{request()->get('typesearch') == "ngonngu" ? "selected" : ""}}>Ngôn ngữ</option>
                                     </select>
                                 </div>
                                 <div class="block block-search">
-                                    <input id="search" type="search" name="q" value="" class="input-text required-entry" maxlength="128" placeholder="Từ khóa cần tìm" autocomplete="off">
+                                    <input id="search" type="search" name="q" value="{{request()->get('q')}}"
+                                           class="input-text required-entry" maxlength="128" placeholder="Từ khóa cần tìm" autocomplete="off">
                                     <span class="input-group-btn">
 								<button class="btn icon-fallback-text">
 									<i class="fa fa-search"></i>
