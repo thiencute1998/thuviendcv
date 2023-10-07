@@ -27,7 +27,7 @@
                         <div class="col-main">
                             <div class="category-view">
                                 <div class="title">
-                                    <span>Có <span id="count-search-result">{{count($books)}}</span> kết quả tìm kiếm 				<i>Tên tác phẩm</i>: <b><i>Giải nghĩa Kinh Thánh</i></b>				</span>
+                                    <span>Có <span id="count-search-result">{{count($books)}}</span> kết quả tìm kiếm <i>Tên tác phẩm</i>: <b><i> {{$nameq}}</i></b></span>
 
                                 </div>
 

@@ -130,10 +130,11 @@
                                         <div class="col-md-9" style="width:100%;">
                                             <div class="boder-wap">
                                                 <section class="awe-section-1">
-                                                    <h3>GIỜ MỞ CỬA - BAN TRIẾT</h3>
+
                                                     <div class="home-slider owl-carousel not-dqowl">
 
                                                         <div class="item">
+                                                            <h3>GIỜ MỞ CỬA - BAN TRIẾT</h3>
                                                             <a href="#" class="clearfix">
                                                                 <picture>
                                                                     <img
@@ -147,6 +148,7 @@
                                                         </div>
 
                                                         <div class="item">
+                                                            <h3>GIỜ MỞ CỬA - BAN A</h3>
                                                             <a href="#" class="clearfix">
                                                                 <picture>
                                                                     <img

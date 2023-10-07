@@ -9,8 +9,8 @@
                                 <h3>Giáo phận bắc ninh</h3>
                             </div>
                             <div class="logo-footer">
-                                <a href="/">
-                                    <img src="style/images/logo.png" alt="" class="img-responsive"/>
+                                <a href="{{route('index')}}">
+                                    <img src="{{$logoWebsite ? asset("upload/admin/banner/image/" . $logoWebsite->image) : "assets/viewer/style/images/logo.png"}}" alt="" class="img-responsive"/>
                                 </a>
                             </div>
                         </div>

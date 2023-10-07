@@ -3,6 +3,7 @@
 namespace App\Repositories\Viewer;
 
 use App\Models\About;
+use App\Models\Banner;
 use App\Models\BookBorrow;
 use App\Models\BookFavorite;
 use App\Models\CalenderEvent;
@@ -33,7 +34,9 @@ class IndexRepository extends BaseRepository {
         $greatBooks = Post::where('status', 1)->orderBy('views', 'desc')->take(10)->get(); // Lay chua dung
         $news = NewEvent::where('status', 1)->take(10)->where('new_type', 1)->get();
         $videos = NewEvent::where('status', 1)->take(10)->where('new_type', 2)->get();
-        return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos'));
+        // Logo
+        $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();
+        return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos', 'logoWebsite'));
     }
     public function getCate($cate) {
         $parentCate = Category::where('status', 1)->where('slug', $cate)->first();

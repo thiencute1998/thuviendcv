@@ -103,7 +103,8 @@ class IndexController extends Controller
 
     public function search(Request $request) {
         $books = $this->repository->search($request->get('typesearch'), $request->get('q'));
-        return view('viewer.pages.search_book', compact('books'));
+        $nameq = $request->get('q');
+        return view('viewer.pages.search_book', compact('books','nameq'));
     }
 
 
