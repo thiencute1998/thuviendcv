@@ -28,7 +28,7 @@ class UserController extends Controller
     }
 
     public function store(Request $request) {
-        $params = $request->only('name', 'email', 'password');
+        $params = $request->only('name', 'email', 'password', 'active');
         $this->repository->store($params);
         return redirect()->back()->with('add-success', 'Add user success !!!');
     }
@@ -39,7 +39,7 @@ class UserController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $params = $request->only('name', 'email');
+        $params = $request->only('name', 'email', 'active');
         $this->repository->update($params, $id);
         return redirect()->back()->with('edit-success', 'Edit user success !!!');
     }

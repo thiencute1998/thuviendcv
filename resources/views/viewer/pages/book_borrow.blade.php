@@ -49,7 +49,7 @@
                                             <th width="5%">STT</th>
                                             <th width="10%"> Mã số</th>
                                             <th width="40%"> Tên tác phẩm</th>
-                                            <th width="5%"> Tập số</th>
+                                            <th width="10%"> Tập số</th>
                                             <th width="15%">DDC</th>
                                             <th width="15%">Tác giả</th>
                                             <th width="5%"> Xóa</th>
@@ -57,13 +57,13 @@
 {{--                                        <tr>--}}
 {{--                                            <td>1</td>--}}
 {{--                                            <td>617BC0003807</td>--}}
-{{--                                            <td><a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_product/view/id/3057/"> <b>Communauté et Mission</b></a></td>--}}
+{{--                                            <td><a href="https://.../thuvien/catalog_product/view/id/3057/"> <b>Communauté et Mission</b></a></td>--}}
 {{--                                            <td></td>--}}
 {{--                                            <td>--}}
 {{--                                                000                   </td>--}}
 {{--                                            <td>--}}
 {{--                                                DU-M                   </td>--}}
-{{--                                            <td><a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/phieusach/remove/id/617BC0003807/"><img src="https://thuviendcv.gpbuichu.org/skin/frontend/rwd/thuvien/images/delete.png"></a> </td>--}}
+{{--                                            <td><a href="https://.../thuvien/phieusach/remove/id/617BC0003807/"><img src="https://thuviendcv.gpbuichu.org/skin/frontend/rwd/thuvien/images/delete.png"></a> </td>--}}
 {{--                                        </tr>--}}
                                         </tbody>
                                     </table>
@@ -76,48 +76,38 @@
                                     Để có thể mượn sách tại Thư viện, xin độc giả vui lòng lựa chọn <span style="color:red;">một trong hai cách</span> sau: 			<p style="font-style:italic;font-size:1em; color:red; font-weight:normal;padding: 5px 0;">Quý khách mượn sách tại các thư viện liên kết, xin vui lòng thanh toán số tiền phí vận chuyển với đơn vị vận chuyển.</p>
                                 </div>
 
-{{--                                <div class="loggin-to-borrow">--}}
-{{--                                    <form action="https://thuviendcv.gpbuichu.org/index.php/thuvien/phieusach/xacnhan/" method="post" id="login-form">--}}
-{{--                                        <div class="col2-set">--}}
-{{--                                            <div class="col-2 registered-users">--}}
-{{--                                                <div class="content">--}}
-{{--                                                    <h2 class="phieu-steps"><span>1</span>Viết phiếu</h2>--}}
-{{--                                                    <p class="quytrinh-sub"> (Dành cho Quý độc giả hiện diện tại Thư viện)</p>--}}
-{{--                                                    <p class="quytrinh-notice">Vui lòng thực hiện theo quy trình sau:</p>--}}
-{{--                                                    <div class="quytrinh">--}}
-{{--                                                        <p>Nhập đầy đủ những thông tin đã có sẵn trên phiếu mượn sách.</p>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="muiten">--}}
-{{--                                                        <img src="https://thuviendcv.gpbuichu.org/skin/frontend/rwd/thuvien/images/arrow.png">--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="quytrinh">--}}
-{{--                                                        <p>Xác nhận thông tin phiếu bằng việc click vào nút <span>'Xác nhận'</span> phía cuối khung này.</p>--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="muiten">--}}
-{{--                                                        <img src="https://thuviendcv.gpbuichu.org/skin/frontend/rwd/thuvien/images/arrow.png">--}}
-{{--                                                    </div>--}}
-{{--                                                    <div class="quytrinh">--}}
-{{--                                                        <p>Chuyển phiếu mượn sách tới quầy lưu hành để mượn sách.</p>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                                <input type="hidden" name="xacnhanmuonsach" value="1">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-2 registered-users">--}}
-{{--                                            <div class="buttons-set">--}}
-{{--                                                <button type="submit" class="button" title="Đăng nhập" name="send" id="send1"><span><span>Xác nhận</span></span></button>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <script type="text/javascript">--}}
-{{--                                            //<![CDATA[--}}
-{{--                                            // var phieusach = new VarienForm('login-form', true);--}}
-{{--                                            //]]>--}}
-{{--                                        </script>--}}
-{{--                                    </form>--}}
-{{--                                </div>--}}
+                                <div class="loggin-to-borrow">
+                                    <form action="https://.../thuvien/phieusach/xacnhan/" method="post" id="login-form">
+                                        <div class="col2-set1">
+                                            <div class="col-2 registered-users">
+                                                <div class="content">
+                                                    <h2 class="phieu-steps"><span>1</span>Viết phiếu</h2>
+                                                    <p class="quytrinh-sub"> (Dành cho Quý độc giả hiện diện tại Thư viện)</p>
+                                                    <p class="quytrinh-notice">Vui lòng thực hiện theo quy trình sau:</p>
+                                                    <div class="quytrinh">
+                                                        <p>Nhập đầy đủ những thông tin đã có sẵn trên phiếu mượn sách.</p>
+                                                    </div>
+                                                    <div class="muiten">
+                                                        <img src="https://thuviendcv.gpbuichu.org/skin/frontend/rwd/thuvien/images/arrow.png">
+                                                    </div>
+                                                    <div class="quytrinh">
+                                                        <p>Xác nhận thông tin phiếu bằng việc click vào nút <span>'Xác nhận'</span> phía cuối khung này.</p>
+                                                    </div>
+                                                    <div class="muiten">
+                                                        <img src="https://thuviendcv.gpbuichu.org/skin/frontend/rwd/thuvien/images/arrow.png">
+                                                    </div>
+                                                    <div class="quytrinh">
+                                                        <p>Chuyển phiếu mượn sách tới quầy lưu hành để mượn sách.</p>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" name="xacnhanmuonsach" value="1">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
 
                                 <div class="detail-information">
-                                    <form action="https://thuviendcv.gpbuichu.org/index.php/thuvien/phieusach/muon/" method="post" id="phieusach-form">
+                                    <form action="https://.../thuvien/phieusach/muon/" method="post" id="phieusach-form">
                                         <div class="col2-set">
                                             <div class="col-2">
                                                 <div class="content">

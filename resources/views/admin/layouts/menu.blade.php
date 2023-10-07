@@ -61,4 +61,7 @@
         </div>
     </div>
 </div>
+<style>
+    .metismenu li a{ padding: 10px 15px !important;}
+</style>
 <!-- sidebar menu area end -->

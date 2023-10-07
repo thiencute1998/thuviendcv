@@ -56,7 +56,7 @@
                                     <thead class="text-uppercase">
                                     <tr>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Image</th>
+                                        <th scope="col">Email</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
@@ -65,7 +65,7 @@
                                         @if($user->role ==1)
                                         <tr>
                                             <th scope="row">{{$user->name}}</th>
-                                            <td>{{$user->image}}</td>
+                                            <td>{{$user->email}}</td>
                                             <td>
                                                 <a href="{{ route('admins-edit', ['id'=> $user->id]) }}">
                                                     <i class="fa fa-edit"></i>

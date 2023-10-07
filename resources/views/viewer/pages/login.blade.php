@@ -76,8 +76,8 @@
                                         </div>
                                     </div>
                                     <div class="col-2 registered-users">
-                                        <div class="buttons-set">
-                                            <a href="https://thuviendcv.gpbuichu.org/index.php/customer/account/forgotpassword/"
+                                        <div class="buttons-set" style="margin-bottom: 20px;">
+                                            <a href="{{route('contact')}}"
                                                class="f-left">Bạn bị quên mật khẩu?</a>
                                             <button type="submit" class="button" title="Đăng nhập" name="send" id="send2">
                                                 <span><span>Đăng nhập</span></span></button>

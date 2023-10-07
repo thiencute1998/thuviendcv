@@ -45,9 +45,9 @@
                                 <h4 class="header-title">List Products</h4>
                             </div>
                             <div>
-                                <a class="btn btn-primary" href="users/create">
-                                    <i class="ti-plus"></i><span>Add</span>
-                                </a>
+{{--                                <a class="btn btn-primary" href="users/create">--}}
+{{--                                    <i class="ti-plus"></i><span>Add</span>--}}
+{{--                                </a>--}}
                             </div>
                         </div>
                         <div class="row">
@@ -56,7 +56,8 @@
                                     <thead class="text-uppercase">
                                     <tr>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Image</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Trạng thái</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
@@ -65,7 +66,14 @@
                                         @if($user->role ==2)
                                         <tr>
                                             <th scope="row">{{$user->name}}</th>
-                                            <td>{{$user->image}}</td>
+                                            <td>{{$user->email}}</td>
+                                            <td style="vertical-align: middle;">
+                                                @if($user->active)
+                                                    <span class="text-success">Đã kích hoạt</span>
+                                                @else
+                                                    <span class="text-danger">Chưa kích hoạt</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <a href="{{ route('users-edit', ['id'=> $user->id]) }}">
                                                     <i class="fa fa-edit"></i>

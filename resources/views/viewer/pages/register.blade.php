@@ -22,9 +22,9 @@
         <div class="row">
             <section class="mn-content col-md-12 list-blog-page">
                 <div class="account-create">
-                    <div class="page-title">
-                        <h1>Tạo tài khoản</h1>
-                    </div>
+{{--                    <div class="page-title">--}}
+{{--                        <h1>Tạo tài khoản</h1>--}}
+{{--                    </div>--}}
                     <form action="{{route('post-register-user')}}" method="post"
                           id="form-validate">
                         @csrf
@@ -60,13 +60,13 @@
                                                        maxlength="255" class="input-text required-entry">
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <label for="email_address" class="required"><em>*</em>Địa chỉ email </label>
-                                    <div class="input-box">
-                                        <input type="text" name="email" id="email_address" value="" title="Địa chỉ email"
-                                               class="input-text validate-email required-entry" required>
+                                        <div class="field name-lastname">
+                                            <label for="lastname" class="required"><em>*</em>Địa chỉ email</label>
+                                            <div class="input-box">
+                                                <input type="text" name="email" id="email_address" value="" title="Địa chỉ email"
+                                                       class="input-text validate-email required-entry" required>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
                             </ul>
@@ -102,13 +102,13 @@
 {{--                                <li>--}}
 {{--                                    <div class="captcha-image" id="captcha-image-box-user_create">--}}
 {{--                                        <img id="captcha-reload" class="captcha-reload"--}}
-{{--                                             src="https://thuviendcv.gpbuichu.org/skin/frontend/base/default/images/reload.png"--}}
+{{--                                             src="https://.../images/reload.png"--}}
 {{--                                             alt="Reload captcha" onclick="$('user_create').captcha.refresh(this)">--}}
 {{--                                        <img id="user_create" class="captcha-img" height="50"--}}
-{{--                                             src="https://thuviendcv.gpbuichu.org/media/captcha/base/f6b6b5135bf41fccb4cd3d81d8969683.png">--}}
+{{--                                             src="https://.../captcha/base/f6b6b5135bf41fccb4cd3d81d8969683.png">--}}
 {{--                                    </div>--}}
 {{--                                    <script type="text/javascript">//<![CDATA[--}}
-{{--                                        $('user_create').captcha = new Captcha('https://thuviendcv.gpbuichu.org/index.php/captcha/refresh/', 'user_create');--}}
+{{--                                        $('user_create').captcha = new Captcha('https://.../captcha/refresh/', 'user_create');--}}
 {{--                                        //]]></script>--}}
 {{--                                </li>--}}
 
@@ -122,19 +122,17 @@
                                 <ul class="form-list">
                                     <li class="fields">
                                         <div class="field">
-                                            <div><h4 class="icon-head head-edit-form fieldset-legend"></h4>
-                                                <fieldset id="amcustomerattr50" class="amcustomerattr">
-                                    <span class="field-row">
-                                    <label for="madocgia">Mã độc giả</label><div style="clear: both;"></div>
-                                    <input id="madocgia" name="code" value="" class=" input-text"
-                                           type="text">
-                                    <div style="padding: 4px;"></div></span>
-                                                    <span class="field-row">
-                                    <label for="sdt">Số điện thoại</label><div style="clear: both;"></div>
-                                    <input id="sdt" name="phone" value="" class=" input-text" type="text">
-                                    <div style="padding: 4px;"></div></span>
-                                                </fieldset>
-                                            </div>
+                                            <span class="field-row">
+                                            <label for="madocgia">Mã độc giả</label><div style="clear: both;"></div>
+                                            <input id="madocgia" name="code" value="" class=" input-text"
+                                                   type="text">
+                                            <div style="padding: 4px;"></div></span>
+                                        </div>
+                                        <div class="field">
+                                            <span class="field-row">
+                                            <label for="sdt">Số điện thoại</label><div style="clear: both;"></div>
+                                            <input id="sdt" name="phone" value="" class=" input-text" type="text">
+                                            <div style="padding: 4px;"></div></span>
                                         </div>
                                     </li>
                                 </ul>
@@ -146,8 +144,8 @@
 
                         <div class="buttons-set">
                             <!-- <p class="required"></p>-->
-                            <p class="back-link"><a href="https://thuviendcv.gpbuichu.org/index.php/customer/account/login/"
-                                                    class="back-link"><small>« </small>Quay lại</a></p>
+{{--                            <p class="back-link"><a href="https://.../account/login/"--}}
+{{--                                                    class="back-link"><small>« </small>Quay lại</a></p>--}}
                             <button type="submit" title="Gửi thông tin" class="button">
                                 <span><span>Gửi thông tin</span></span></button>
                         </div>

@@ -19,7 +19,7 @@
 	display: table !important;
 	border:none !important;
 }
-.input-box .block-search-1{ 
+.input-box .block-search-1{
 	float:left;
 	width:30%;
 }
@@ -115,7 +115,7 @@
 .ant-product-item .box-info .item-price-1 .price-box .special-price .price {
     font-size: 14px;
     color: #3e8d28;
-    
+
     font-family: SFUFUturaBook;
 }
 .ant-product-item .box-info{
@@ -266,7 +266,7 @@
 .quytrinh-sub {
     font-style: italic;
     margin-bottom: 20px;
-    margin-top: -15px;
+    margin-top: 0px;
     text-align: center;
     font-size: 0.9em;
 }
@@ -361,13 +361,15 @@
     margin: 0px;
 }
 #login-form .button, .account-create .button {
-    background: #dddddd none repeat scroll 0 0;
+    background: #268102 none repeat scroll 0 0;
     border: medium none;
     border-radius: 5px;
     height: 46px;
     margin-top: 10px;
     padding: 0 40px;
     cursor: pointer;
+    color: #FFF;
+    line-height: 42px;
 }
 #login-form .form-list input.input-text, .account-create input.input-text, .loggin-to-borrow #login-form .form-list input.input-text {
     width: 262px;
@@ -424,7 +426,7 @@ ul.product-list {
     float: left;
     width: 100%;
     list-style: none;
-    margin-bottom: 15px;
+    margin-bottom: 1px;
 }
 .account-create .field {
     float: left;
@@ -638,7 +640,7 @@ td.wishlist-img{
 }
 .gio-mo-cua .bx-wrapper img{
 	width:100%;
-	
+
 }
 #add-to-wishlist, .mucluc, .related-product{ margin:10px;}
 #tabs-container .tabs-menu li{
@@ -748,7 +750,8 @@ ul.product-list li:nth-child(6) { clear:both;}
 	z-index:99;
 }
 .bread-crumb .col-xs-12{ position:inherit}
-
+.name-firstname label, .name-lastname label{ height: 38px !important;}
+.field input { margin-bottom: 5px; }
 
 
 
@@ -828,10 +831,10 @@ ul.product-list li:nth-child(6) { clear:both;}
 		float: none;
 	}
 	#sachmoi-slider-container{
-		margin: auto; 
+		margin: auto;
 		width: auto;
 	}
-	
+
 	.cms-home .main-container{
 		padding: 0px;
 		width: 100%;
@@ -846,13 +849,13 @@ ul.product-list li:nth-child(6) { clear:both;}
 	.newbook ul li, .goodbook ul li {
 		display:none;
 	}
-	.newbook ul li:nth-child(1), .newbook ul li:nth-child(2), .newbook ul li:nth-child(3), .newbook ul li:nth-child(4), .newbook ul li:nth-child(5), 
+	.newbook ul li:nth-child(1), .newbook ul li:nth-child(2), .newbook ul li:nth-child(3), .newbook ul li:nth-child(4), .newbook ul li:nth-child(5),
 	.goodbook ul li :nth-child(1), .goodbook ul li:nth-child(2), .goodbook ul li:nth-child(3), .goodbook ul li:nth-child(4), .goodbook ul li:nth-child(5){
 		display:block;
 		margin-bottom:20px;
-	}	
+	}
 	.newbook ul li div, .newbook ul li a, .goodbook ul li a, .goodbook ul li, .newbook .prodouct-name, .goodbook .prodouct-name, .category-view .prodouct-name{
-		text-align:center;		
+		text-align:center;
 	}
 	.newbook .prodouct-name, .goodbook .prodouct-name, .category-view .prodouct-name, #search_mini_form select, #search{
 		width:100%;
@@ -897,11 +900,11 @@ ul.product-list li:nth-child(6) { clear:both;}
 	}
 	.main-container{
 		padding:0px;
-	}	
+	}
 	.cms-container {
 		width: auto !important;
 		padding: 0 15px;
-	}	
+	}
 	.cms-right-container, .cms-right-container img{
 		width:100%;
 	}
@@ -912,7 +915,7 @@ ul.product-list li:nth-child(6) { clear:both;}
 	}
 	.frm-lienhe {
 		width: 90%;
-		float: none;		
+		float: none;
 		margin: 20px auto;
 	}
 	.frm-lienhe textarea{
@@ -920,7 +923,7 @@ ul.product-list li:nth-child(6) { clear:both;}
 	}
 	.thuvien-catalog-category-list .col-main, .thuvien-catalog-category-view .col-main,  .thuvien-phieusach-xacnhan  .col-main, .thuvien-search-index  .col-main,
 	.thuvien-catalog-product-view .col-main, .thuvien-tacgia-listp .col-main{
-		padding:0 10px; 
+		padding:0 10px;
 	}
 	.ddc-content li{
 		width:100%;
@@ -938,7 +941,7 @@ ul.product-list li:nth-child(6) { clear:both;}
 		width:100%;
 		float:none;
 	}
-	.banso tr td.each-tppop{		
+	.banso tr td.each-tppop{
 		border-top: 1px solid #ddd;
 		padding: 5px;
 		display: block;

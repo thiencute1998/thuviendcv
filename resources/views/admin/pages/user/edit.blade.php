@@ -38,6 +38,13 @@
                                         <label for="user-description" class="col-form-label">Email</label>
                                         <input class="form-control" name="email" type="text" value="{{ $user->email }}" id="user-description" required >
                                     </div>
+                                    <div class="form-group">
+                                        <label for="services" class="col-form-label">Trạng thái</label>
+                                        <select class="form-control category-status" name="active" data-value="{{ $user->active }}">
+                                            <option value="1" @if($user->active==1) selected @endif>Hoạt động</option>
+                                            <option value="0" @if($user->active==0) selected @endif>Không hoạt động</option>
+                                        </select>
+                                    </div>
                                     <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                                 </form>
                             </div>
