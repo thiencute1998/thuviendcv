@@ -36,15 +36,19 @@ class IndexController extends Controller
             if ($category) {
                 // List sach theo danh muc
                 $books = $this->repository->getBooks($category);
-                if (count($books)) {
-                    return view('viewer.pages.books', compact('books'));
-                } else {
-                    // List danh muc
-                    $data = $this->repository->getCate($cate);
-                    $parentCate = $data['parentCate'];
-                    $categories = $data['categories'];
-                    return view('viewer.pages.category', compact('parentCate', 'categories'));
-                }
+                $data = $this->repository->getCate($cate);
+                $parentCate = $data['parentCate'];
+                $categories = $data['categories'];
+                return view('viewer.pages.category', compact('parentCate', 'categories', 'books'));
+//                if (count($books)) {
+//                    return view('viewer.pages.books', compact('books'));
+//                } else {
+//                    // List danh muc
+//                    $data = $this->repository->getCate($cate);
+//                    $parentCate = $data['parentCate'];
+//                    $categories = $data['categories'];
+//                    return view('viewer.pages.category', compact('parentCate', 'categories'));
+//                }
             }
         }
     }

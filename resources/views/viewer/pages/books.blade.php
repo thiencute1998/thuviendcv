@@ -10,7 +10,7 @@
                             <span><i class="fa fa-angle-right"></i></span>
                         </li>
 
-                        <li><strong itemprop="title">Sách yêu thích</strong></li>
+{{--                        <li><strong itemprop="title">Sách yêu thích</strong></li>--}}
 
                     </ul>
                 </div>
@@ -26,9 +26,9 @@
 
 
                     <div class="category-view">
-                        <div class="title">
-                            <span>Tổng quát</span>
-                        </div>
+{{--                        <div class="title">--}}
+{{--                            <span>Tổng quát</span>--}}
+{{--                        </div>--}}
                         <ul class="product-list">
                             @foreach($books as $book)
                                 <li>
