@@ -68,12 +68,10 @@
                                 </button>
                                 <div class="customer-menu">
                                     <ul class="header links">
-
-                                        <li><a href="/account/login">Thông tin</a></li>
-                                        <li><a href="/account/register">Sách yêu thích</a></li>
+                                        <li><a href="{{route('get-account-info')}}">Thông tin</a></li>
+                                        <li><a href="{{route('get-book-favorite')}}">Sách yêu thích</a></li>
                                         <li><a href="{{route('get-register-user')}}">Đăng ký</a></li>
                                         <li><a href="{{route('get-login-user')}}">Đăng nhập</a></li>
-
                                     </ul>
                                 </div>
                             </div>

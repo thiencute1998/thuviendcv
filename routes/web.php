@@ -208,6 +208,7 @@ Route::get('/instruct', [IndexController::class, 'getInstruct'])->name('instruct
 Route::get('/contact', [IndexController::class, 'getContact'])->name('contact');
 Route::post('/post-contact', [IndexController::class, 'postContact'])->name('post-contact');
 Route::get('/search', [IndexController::class, 'search'])->name('search');
+Route::get('/account/info', [IndexController::class, 'getAccountInfo'])->name('get-account-info');
 
 Route::get('/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
 

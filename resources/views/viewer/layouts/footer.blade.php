@@ -21,23 +21,7 @@
                                 <h3>Thông tin liên hệ</h3>
                             </div>
                             <div class="footer-content">
-                                <ul class="menu">
-
-                                    <li><i class="fa fa-users" aria-hidden="true"></i> Thư viện Nhà ứng sinh thánh Phêrô
-                                        Nguyễn Văn Tự
-                                    </li>
-
-                                    <li><i class="fa fa-home" aria-hidden="true"></i> Nhà Ứng Sinh thánh Phêrô Nguyễn
-                                        Văn Tự. Thôn Xuân Hoà, xã Đại Xuân, huyện Quế Võ, tỉnh Bắc Ninh.
-                                    </li>
-
-                                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i> Email:
-                                        nhathanhthu123@gmail.com
-                                    </li>
-
-                                    <li><i class="fa fa-phone" aria-hidden="true"></i> Phone: 0977809899</li>
-
-                                </ul>
+                                {!! $contactFooter ? $contactFooter->lienhe : "" !!}
                             </div>
                         </div>
                     </div>

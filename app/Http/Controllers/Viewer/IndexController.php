@@ -7,6 +7,7 @@ use App\Http\Requests\Viewer\ContactRequest;
 use App\Models\BookFavorite;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\User;
 use App\Repositories\Viewer\IndexRepository;
 use Illuminate\Http\Request;
 
@@ -107,7 +108,14 @@ class IndexController extends Controller
         return view('viewer.pages.search_book', compact('books','nameq'));
     }
 
-
+    public function getAccountInfo() {
+        if (auth()->user()) {
+            $account = User::where('id', auth()->user()->id)->first();
+            return view('viewer.pages.account_info', compact('account'));
+        } else {
+            return redirect()->route('get-login-user');
+        }
+    }
 
 
 

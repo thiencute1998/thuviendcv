@@ -37,13 +37,15 @@ class AppServiceProvider extends ServiceProvider
         $bannerApp = Banner::where('status', 1)->first();
         // Logo
         $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();
-        View::composer('*', function ($view) use($bannerApp,$logoWebsite){
+        $contactFooter = About::first();
+        View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter){
             $user = auth()->user();
 
             $data = [
                 'userLogin'=> $user,
                 'bannerApp'=> $bannerApp,
-                'logoWebsite'=> $logoWebsite
+                'logoWebsite'=> $logoWebsite,
+                'contactFooter'=> $contactFooter
             ];
             $view->with($data);
         });
