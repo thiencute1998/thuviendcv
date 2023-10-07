@@ -24,16 +24,19 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('admin')
-                ->withSuccess('Signed in');
+            if (\auth()->user()->role == 1) {
+                return redirect()->intended('admin')
+                    ->withSuccess('Signed in');
+            }
+            Auth::logout();
         }
 
-        return redirect("login")->with('login-fail', 'Wrong email or password');
+        return redirect()->route('login-index')->with('login-fail', 'Wrong email or password');
     }
 
     public function logout() {
         Auth::logout();
 
-        return redirect('login');
+        return redirect()->route('login-index');
     }
 }

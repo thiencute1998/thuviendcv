@@ -147,11 +147,11 @@
                                                         </div>
 
                                                         <div class="item">
-                                                            <h3>GIỜ MỞ CỬA - BAN A</h3>
+                                                            <h3>{{$giomc ? $giomc->name : ""}}</h3>
                                                             <a href="#" class="clearfix">
                                                                 <picture>
                                                                     <img
-                                                                        src="{{ asset('assets/viewer/style/images/giomc.png') }}"
+                                                                        src="{{$giomc ? (asset('upload/admin/New/image/' . $giomc->image)) : asset('assets/viewer/style/images/giomc.png') }}"
                                                                         width="252"
                                                                         height="337" alt=""
                                                                         class="img-responsive center-block"/>
@@ -378,7 +378,7 @@
                         <h2 class="title-head">
                             Tin tức
                         </h2>
-                        <a href="/blogs/news" class="news-more" title="Xem thêm">Xem thêm</a>
+{{--                        <a href="/blogs/news" class="news-more" title="Xem thêm">Xem thêm</a>--}}
                     </div>
                     <div class="list-blogs-link">
                         <div class="row">
@@ -387,7 +387,7 @@
                                     @foreach($news as $new)
                                         <div class="item-inner">
                                             <div class="blog-image">
-                                                <a href="/blogs/news/245-trieu-cai-tao-giup-can-ho-ha-noi-75-m2-dep-rong-gap-doi">
+                                                <a href="{{route('get-new', ['slug'=> $new->slug])}}">
 
                                                     <img
                                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
@@ -400,7 +400,7 @@
                                             <div class="blog-content">
                                                 <div class="blog-content-inner">
                                                     <h3 class="blog-title">
-                                                        <a href="/blogs/news/245-trieu-cai-tao-giup-can-ho-ha-noi-75-m2-dep-rong-gap-doi"
+                                                        <a href="{{route('get-new', ['slug'=> $new->slug])}}"
                                                            title="{{$new->name}}">{{$new->name}}</a>
                                                     </h3>
 
@@ -419,7 +419,7 @@
         </section>
     </section>
 
-    <section class="awe-section-10">
+    <section class="awe-section-12">
         <section class="section-news">
             <div class="container">
                 <div class="blogs-content">
@@ -430,21 +430,20 @@
                         <h2 class="title-head">
                             Video
                         </h2>
-                        <a href="/blogs/news" class="news-more" title="Xem thêm">Xem thêm</a>
+{{--                        <a href="/blogs/news" class="news-more" title="Xem thêm">Xem thêm</a>--}}
                     </div>
                     <div class="list-blogs-link">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-news-owl owl-carousel not-dqowl">
-
-                                    <div class="item-inner">
+                                    @foreach($videos as $key=>$video)
+                                        <div class="item-inner">
                                         <div class="blog-image">
-                                            <a href="/blogs/news/245-trieu-cai-tao-giup-can-ho-ha-noi-75-m2-dep-rong-gap-doi">
+                                            <a href="{{route('get-video', ['slug'=> $video->slug])}}">
 
                                                 <img
-                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                                                    data-lazyload="//file.hstatic.net/1000343108/article/scandinavian-apartment-5_grande.jpg"
-                                                    alt="245 triệu cải tạo giúp căn hộ Hà Nội 75 m2 đẹp rộng gấp đôi"
+                                                    data-lazyload="{{asset('upload/admin/New/image/' . $video->image)}}"
+                                                    alt="{{$video->name}}"
                                                     class="img-responsive center-block"/>
 
                                             </a>
@@ -452,66 +451,13 @@
                                         <div class="blog-content">
                                             <div class="blog-content-inner">
                                                 <h3 class="blog-title">
-                                                    <a href="/blogs/news/245-trieu-cai-tao-giup-can-ho-ha-noi-75-m2-dep-rong-gap-doi"
-                                                       title="245 triệu cải tạo giúp căn hộ Hà Nội 75 m2 đẹp rộng gấp đôi">245
-                                                        triệu cải tạo giúp căn hộ Hà Nội 75 m2 đẹp rộng gấp đôi</a>
+                                                    <a href="{{route('get-video', ['slug'=> $video->slug])}}"
+                                                       title="{{$video->name}}">{{$video->name}}</a>
                                                 </h3>
-
-
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="item-inner">
-                                        <div class="blog-image">
-                                            <a href="/blogs/news/bo-suu-tap-mau-sac-2019-cho-khong-gian-song">
-
-                                                <img
-                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                                                    data-lazyload="//file.hstatic.net/1000343108/article/white-kitchen-color-schemes-hyper-trend-ideas-1_grande.jpg"
-                                                    alt="Bộ sưu tập màu sắc 2019 cho không gian sống"
-                                                    class="img-responsive center-block"/>
-
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-content-inner">
-                                                <h3 class="blog-title">
-                                                    <a href="/blogs/news/bo-suu-tap-mau-sac-2019-cho-khong-gian-song"
-                                                       title="Bộ sưu tập màu sắc 2019 cho không gian sống">Bộ sưu tập
-                                                        màu
-                                                        sắc 2019 cho không gian sống</a>
-                                                </h3>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="item-inner">
-                                        <div class="blog-image">
-                                            <a href="/blogs/news/gia-chu-thanh-hoa-mua-6-nha-hang-xom-de-lam-noi-o-dep-nhu-resort">
-
-                                                <img
-                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                                                    data-lazyload="//file.hstatic.net/1000343108/article/123069182_grande.jpg"
-                                                    alt="Gia chủ Thanh Hóa mua 6 nhà hàng xóm để làm nơi ở đẹp như resort"
-                                                    class="img-responsive center-block"/>
-
-                                            </a>
-                                        </div>
-                                        <div class="blog-content">
-                                            <div class="blog-content-inner">
-                                                <h3 class="blog-title">
-                                                    <a href="/blogs/news/gia-chu-thanh-hoa-mua-6-nha-hang-xom-de-lam-noi-o-dep-nhu-resort"
-                                                       title="Gia chủ Thanh Hóa mua 6 nhà hàng xóm để làm nơi ở đẹp như resort">Gia
-                                                        chủ Thanh Hóa mua 6 nhà hàng xóm để làm nơi ở đẹp như resort</a>
-                                                </h3>
-
-
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
 
                                 </div>
                             </div>

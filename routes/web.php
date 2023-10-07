@@ -209,6 +209,8 @@ Route::get('/contact', [IndexController::class, 'getContact'])->name('contact');
 Route::post('/post-contact', [IndexController::class, 'postContact'])->name('post-contact');
 Route::get('/search', [IndexController::class, 'search'])->name('search');
 Route::get('/account/info', [IndexController::class, 'getAccountInfo'])->name('get-account-info');
+Route::get('/new/{slug}', [IndexController::class, 'getNew'])->name('get-new');
+Route::get('/video/{slug}', [IndexController::class, 'getVideo'])->name('get-video');
 
 Route::get('/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
 

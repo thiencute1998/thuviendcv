@@ -59,7 +59,8 @@ class IndexController extends Controller
     }
 
     public function getBookBorrow() {
-        return view('viewer.pages.book_borrow');
+        $reader = auth()->user();
+        return view('viewer.pages.book_borrow', compact('reader'));
     }
 
     public function postBookBorrow(Request $request) {
@@ -121,6 +122,16 @@ class IndexController extends Controller
         }
     }
 
+    public function getNew($slug) {
+        $new = $this->repository->getNewByType($slug, 1);
+        return view('viewer.pages.new_detail', compact('new'));
+    }
+
+    public function getVideo($slug) {
+        $video = $this->repository->getNewByType($slug, 2);
+        return view('viewer.pages.video_detail', compact('video'));
+    }
+
 
 
     // Khong dung
@@ -160,12 +171,6 @@ class IndexController extends Controller
 
     public function findChurch() {
         return view('viewer.pages.find_church');
-    }
-
-    public function getVideo($video) {
-        $video = $this->repository->getVideo($video);
-        $videoRelated = $this->repository->getVideoRelated($video);
-        return view('viewer.pages.video', compact('video', 'videoRelated'));
     }
 
     public function getMap() {

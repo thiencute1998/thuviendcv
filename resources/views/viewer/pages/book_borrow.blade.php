@@ -121,7 +121,7 @@
                                                         <tbody><tr>
                                                             <td><label for="email" class="required"><em>*</em>Mã độc giả</label></td>
                                                             <td class="input-box">
-                                                                <input type="text" name="madocgia" value="" id="madocgia"
+                                                                <input type="text" name="madocgia" value="{{$reader ? $reader->code : ""}}" id="madocgia"
                                                                        class="input-text required-entry validation-failed"
                                                                        title="Mã độc giả(nếu có)" required>
                                                             </td>
@@ -129,26 +129,30 @@
                                                         <tr>
                                                             <td><label for="email" class="required"><em>*</em>Họ và tên</label></td>
                                                             <td class="input-box">
-                                                                <input type="text" name="hoten" value="" id="hoten"
+                                                                <input type="text" name="hoten" value="{{$reader ? ($reader->surname . ' ' . $reader->name): ""}}" id="hoten"
                                                                        class="input-text required-entry validation-failed" title="Họ và tên" required>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td> <label for="email" class="required"><em>*</em>Email</label></td>
                                                             <td class="input-box">
-                                                                <input type="text" name="email" value="" id="user_email" class="input-text required-entry validate-email validation-failed" title="Địa chỉ email" required>
+                                                                <input type="text" name="email" value="{{$reader ? $reader->email : ""}}" id="user_email"
+                                                                       class="input-text required-entry validate-email validation-failed"
+                                                                       title="Địa chỉ email" required>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><label for="email">Điện thoại</label></td>
                                                             <td class="input-box">
-                                                                <input type="text" name="dienthoai" value="" id="dienthoai" class="input-text validation-passed" title="Điện thoại">
+                                                                <input type="text" name="dienthoai" value="{{$reader ? $reader->phone : ""}}" id="dienthoai"
+                                                                       class="input-text validation-passed" title="Điện thoại">
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td><label for="email" class="required"><em>*</em>Địa chỉ<label></label></label></td>
                                                             <td class="input-box">
-                                                                <textarea rows="3" name="diachi" value="" id="diachi" class="input-text required-entry validation-failed" title="Địa chỉ"></textarea>
+                                                                <textarea rows="3" name="diachi" value="" id="diachi"
+                                                                          class="input-text required-entry validation-failed" title="Địa chỉ"></textarea>
                                                             </td>
                                                         </tr>
                                                         </tbody></table>

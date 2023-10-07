@@ -32,9 +32,10 @@ class IndexRepository extends BaseRepository {
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
         $newBooks = Post::where('status', 1)->orderBy('created_at', 'asc')->take(10)->get();
         $greatBooks = Post::where('status', 1)->orderBy('views', 'desc')->take(10)->get(); // Lay chua dung
-        $news = NewEvent::where('status', 1)->take(10)->where('new_type', 1)->get();
-        $videos = NewEvent::where('status', 1)->take(10)->where('new_type', 2)->get();
-        return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos'));
+        $news = NewEvent::where('status', 1)->where('new_type', 1)->take(10)->get();
+        $videos = NewEvent::where('status', 1)->where('new_type', 2)->take(10)->get();
+        $giomc = NewEvent::where('status', 1)->where('new_type', 3)->first();
+        return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos', 'giomc'));
     }
     public function getCate($cate) {
         $parentCate = Category::where('status', 1)->where('slug', $cate)->first();
@@ -200,7 +201,10 @@ class IndexRepository extends BaseRepository {
         return $query->paginate(10);
     }
 
-
+    public function getNewByType($slug, $type = 1) {
+        return NewEvent::where('status', 1)->where('new_type', $type)
+            ->where('slug', $slug)->firstOrFail();
+    }
 
 
 
