@@ -283,7 +283,7 @@
     text-align: center;
 }
 .thuvien-phieusach-index .borrower button {
-    background: #4472c4 none repeat scroll 0 0;
+    background: #268102 none repeat scroll 0 0;
     border: medium none;
     border-radius: 5px;
     color: white;
@@ -312,7 +312,7 @@
     color: #394a9a;
 }
 .phieu-steps > span {
-    background: #4472c4 none repeat scroll 0 0;
+    background: #268102 none repeat scroll 0 0;
     border-radius: 50%;
     color: white;
     display: inline-block;
@@ -486,7 +486,7 @@ fieldset {
     margin-top: 25px;
 }
 .frm-lienhe button {
-    background: #384b9b none repeat scroll 0 0;
+    background: #268102 none repeat scroll 0 0;
     border: medium none;
     border-radius: 5px;
     color: white;
@@ -752,7 +752,7 @@ ul.product-list li:nth-child(6) { clear:both;}
 .bread-crumb .col-xs-12{ position:inherit}
 .name-firstname label, .name-lastname label{ height: 38px !important;}
 .field input { margin-bottom: 5px; }
-
+footer .back-to-top { background-color: #268102 !important;}
 
 
 /*Mobile*/

@@ -10,8 +10,7 @@
                                 <ul id="menu">
                                     @foreach($categories as $category)
                                         <li><i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                            <a href="{{route('get-cate', ['cate'=> $category->slug])}}">000
-                                                - {{$category->name}}</a>
+                                            <a href="{{route('get-cate', ['cate'=> $category->slug])}}">{{$category->name}}</a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -28,7 +27,7 @@
                         <div class="row">
                             <section class="awe-section-1">
                                 <div class="slogan">
-                                    <marquee>
+                                    <marquee  onMouseOver="this.stop()" onMouseOut="this.start()">
                                         <p>
                                             <em><a href="{{route('get-all-great-book')}}"
                                                    target="_blank"><strong style="color: #268102;">Sách Hay Nên Đọc (bấm

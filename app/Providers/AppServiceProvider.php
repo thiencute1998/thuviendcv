@@ -35,13 +35,15 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         $bannerApp = Banner::where('status', 1)->first();
-
-        View::composer('*', function ($view) use($bannerApp){
+        // Logo
+        $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();
+        View::composer('*', function ($view) use($bannerApp,$logoWebsite){
             $user = auth()->user();
 
             $data = [
                 'userLogin'=> $user,
-                'bannerApp'=> $bannerApp
+                'bannerApp'=> $bannerApp,
+                'logoWebsite'=> $logoWebsite
             ];
             $view->with($data);
         });
