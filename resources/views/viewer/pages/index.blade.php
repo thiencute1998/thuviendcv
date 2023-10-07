@@ -206,7 +206,7 @@
                                                                         <div class="image-container">
 
 
-                                                                            <a href="/products/giuong-albany"
+                                                                            <a href="{{route('get-cate', ['cate'=> $newBook->slug])}}"
                                                                                class="product-item-photo">
                                                                                 <img
                                                                                     class="product-image-photo img-responsive center-block"
@@ -217,8 +217,8 @@
                                                                         </div>
                                                                         <div class="box-info">
                                                                             <h2 class="product-item-name">
-                                                                                <a title="Giường ALBANY"
-                                                                                   href="/products/giuong-albany"
+                                                                                <a title="{{$newBook->name}}"
+                                                                                   href="{{route('get-cate', ['cate'=> $newBook->slug])}}"
                                                                                    class="product-item-link">
                                                                                     {{$newBook->name}}
                                                                                 </a>
@@ -302,7 +302,7 @@
                                                                         <div class="image-container">
 
 
-                                                                            <a href="/products/chao-den-oskar"
+                                                                            <a href="{{route('get-cate', ['cate'=> $greatBook->slug])}}"
                                                                                class="product-item-photo">
                                                                                 <img
                                                                                     class="product-image-photo img-responsive center-block"
@@ -313,8 +313,8 @@
                                                                         </div>
                                                                         <div class="box-info">
                                                                             <h2 class="product-item-name">
-                                                                                <a title="Chao đèn OSKAR"
-                                                                                   href="/products/chao-den-oskar"
+                                                                                <a title="{{$greatBook->name}}"
+                                                                                   href="{{route('get-cate', ['cate'=> $greatBook->slug])}}"
                                                                                    class="product-item-link">
                                                                                     {{$greatBook->name}}
                                                                                 </a>
