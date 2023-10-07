@@ -26,9 +26,9 @@
 
 
                     <div class="category-view">
-{{--                        <div class="title">--}}
-{{--                            <span>Tổng quát</span>--}}
-{{--                        </div>--}}
+                        <div class="title">
+                            <span>{{$parentCate ? $parentCate->name : ""}}</span>
+                        </div>
                         <ul class="product-list">
                             @foreach($books as $book)
                                 <li>
