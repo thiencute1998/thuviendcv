@@ -34,7 +34,7 @@ class IndexRepository extends BaseRepository {
         $greatBooks = Post::where('status', 1)->orderBy('views', 'desc')->take(10)->get(); // Lay chua dung
         $news = NewEvent::where('status', 1)->where('new_type', 1)->take(10)->get();
         $videos = NewEvent::where('status', 1)->where('new_type', 2)->take(10)->get();
-        $giomc = NewEvent::where('status', 1)->where('new_type', 3)->first();
+        $giomc = NewEvent::where('status', 1)->where('new_type', 3)->get();
         return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos', 'giomc'));
     }
     public function getCate($cate) {

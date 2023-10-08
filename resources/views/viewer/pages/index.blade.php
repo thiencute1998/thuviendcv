@@ -132,13 +132,13 @@
                                                 <section class="awe-section-1">
 
                                                     <div class="home-slider owl-carousel not-dqowl">
-
+                                                        @foreach($giomc as $item)
                                                         <div class="item">
-                                                            <h3>GIỜ MỞ CỬA - BAN TRIẾT</h3>
+                                                            <h3>{{$item->name}}</h3>
                                                             <a href="#" class="clearfix">
                                                                 <picture>
                                                                     <img
-                                                                        src="{{ asset('assets/viewer/style/images/giomc.png') }}"
+                                                                        src="{{$item->image ? (asset('upload/admin/New/image/' . $item->image)) : asset('assets/viewer/style/images/noname.jpg') }}"
                                                                         width="252"
                                                                         height="337" alt=""
                                                                         class="img-responsive center-block"/>
@@ -146,19 +146,19 @@
                                                             </a>
 
                                                         </div>
-
-                                                        <div class="item">
-                                                            <h3>{{$giomc ? $giomc->name : ""}}</h3>
-                                                            <a href="#" class="clearfix">
-                                                                <picture>
-                                                                    <img
-                                                                        src="{{$giomc ? (asset('upload/admin/New/image/' . $giomc->image)) : asset('assets/viewer/style/images/giomc.png') }}"
-                                                                        width="252"
-                                                                        height="337" alt=""
-                                                                        class="img-responsive center-block"/>
-                                                                </picture>
-                                                            </a>
-                                                        </div>
+                                                        @endforeach
+{{--                                                        <div class="item">--}}
+{{--                                                            <h3>{{$giomc ? $giomc->name : ""}}</h3>--}}
+{{--                                                            <a href="#" class="clearfix">--}}
+{{--                                                                <picture>--}}
+{{--                                                                    <img--}}
+{{--                                                                        src="{{$giomc ? (asset('upload/admin/New/image/' . $giomc->image)) : asset('assets/viewer/style/images/giomc.png') }}"--}}
+{{--                                                                        width="252"--}}
+{{--                                                                        height="337" alt=""--}}
+{{--                                                                        class="img-responsive center-block"/>--}}
+{{--                                                                </picture>--}}
+{{--                                                            </a>--}}
+{{--                                                        </div>--}}
 
                                                     </div>
 
@@ -191,13 +191,10 @@
                                  data-view="grid_4">
                                 <div class="content margin-content">
                                     <div>
-
                                         <div class="tab-1 tab-content">
-
                                             <div class="section-tour-owl3 products products-view-grid owl-carousel"
                                                  data-lg-items='5' data-md-items='5' data-sm-items='3' data-xs-items="2"
                                                  data-xss-items="2" data-margin='10' data-nav="true" data-dot="false">
-
                                                 @foreach($newBooks as $newBook)
                                                     <div class="item">
                                                         <div class="ant-product-item">
@@ -205,8 +202,6 @@
                                                                 <div class="item">
                                                                     <div class="item-inner">
                                                                         <div class="image-container">
-
-
                                                                             <a href="{{route('get-cate', ['cate'=> $newBook->slug])}}"
                                                                                class="product-item-photo">
                                                                                 <img
@@ -233,17 +228,13 @@
                                                                             </div>
                                                                             <div class="item-price-1">
                                                                                 <div class="price-box price-final_price">
-
-
-						<span class="special-price">
-							<span class="price-container">
-								<span class="price-wrapper-1">
-									Tác giả: <span class="price">{{$newBook->author}}</span>
-								</span>
-							</span>
-						</span>
-
-
+                                                                                    <span class="special-price">
+                                                                                        <span class="price-container">
+                                                                                            <span class="price-wrapper-1">
+                                                                                                Tác giả: <span class="price">{{$newBook->author}}</span>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </span>
                                                                                 </div>
                                                                             </div>
 
@@ -286,13 +277,10 @@
                                  data-view="grid_4">
                                 <div class="content margin-content">
                                     <div>
-
                                         <div class="tab-1 tab-content">
-
                                             <div class="section-tour-owl3 products products-view-grid owl-carousel"
                                                  data-lg-items='5' data-md-items='5' data-sm-items='3' data-xs-items="2"
                                                  data-xss-items="2" data-margin='10' data-nav="true" data-dot="false">
-
                                                 @foreach($greatBooks as $greatBook)
                                                     <div class="item">
 
@@ -301,8 +289,6 @@
                                                                 <div class="item">
                                                                     <div class="item-inner">
                                                                         <div class="image-container">
-
-
                                                                             <a href="{{route('get-cate', ['cate'=> $greatBook->slug])}}"
                                                                                class="product-item-photo">
                                                                                 <img
@@ -329,15 +315,13 @@
                                                                             </div>
                                                                             <div class="item-price-1">
                                                                                 <div class="price-box price-final_price">
-
-
-						<span class="special-price">
-							<span class="price-container">
-								<span class="price-wrapper-1">
-									Tác giả: <span class="price">{{$greatBook->author}}</span>
-								</span>
-							</span>
-						</span>
+                                                                                    <span class="special-price">
+                                                                                        <span class="price-container">
+                                                                                            <span class="price-wrapper-1">
+                                                                                                Tác giả: <span class="price">{{$greatBook->author}}</span>
+                                                                                            </span>
+                                                                                        </span>
+                                                                                    </span>
 
 
                                                                                 </div>
