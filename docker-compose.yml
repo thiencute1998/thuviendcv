@@ -1,0 +1,45 @@
+version: "3.3"
+services:
+    mysql:
+        image: mariadb:10.6
+        container_name: thuviendcv_mysql
+        ports:
+            - "3307:3306"
+        restart: unless-stopped
+        environment:
+            MYSQL_USER: ${DB_USERNAME}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        networks:
+            -   thuviendcv-network
+
+        volumes:
+            -   ./docker/mysql:/var/lib/mysql
+
+    web:
+        image: thuviendcv
+        container_name: thuviendcv_web
+        ports:
+            - "8002:80"
+        restart: unless-stopped
+        working_dir: /var/www/html/thuviendcv
+        volumes:
+            -   ./app:/var/www/html/thuviendcv/app
+            -   ./public:/var/www/html/thuviendcv/public
+            -   ./resources:/var/www/html/thuviendcv/resources
+            -   ./routes:/var/www/html/thuviendcv/routes
+            -   ./storage:/var/www/html/thuviendcv/storage
+            -   ./database:/var/www/html/thuviendcv/database
+            -   ./docker/nginx:/var/log/nginx
+            -   ./docker/php-fpm/php-fpm.log:/var/log/php-fpm.log
+
+        networks:
+            - thuviendcv-network
+        links:
+            -   mysql
+        depends_on:
+            -   mysql
+networks:
+    thuviendcv-network:
+        driver: bridge
