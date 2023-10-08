@@ -33,7 +33,7 @@ class NewController extends Controller
 
     public function edit($id) {
         $new = $this->repository->edit($id);
-        return view('admin.pages.calendar.edit', compact('new'));
+        return view('admin.pages.new.edit', compact('new'));
     }
 
     public function update(Request $request, $id) {

@@ -10,7 +10,7 @@
                             <span><i class="fa fa-angle-right"></i></span>
                         </li>
 
-                        {{--                        <li><strong itemprop="title">Sách yêu thích</strong></li>--}}
+                        <li><strong itemprop="title">Tin tức</strong></li>
 
                     </ul>
                 </div>
@@ -21,14 +21,14 @@
     <div class="container" itemscope="" itemtype="http://schema.org/Blog">
 
         <div class="row">
-            <section class="products-view products-view-grid">
+            <section class="products-view products-view-grid" style="margin-top: 20px">
                 <div class="row">
 
 
                     <div class="category-view">
-                        <div class="title">
-                            <span>Tin tức</span>
-                        </div>
+{{--                        <div class="title">--}}
+{{--                            <span>Tin tức</span>--}}
+{{--                        </div>--}}
                         <ul class="product-list">
                             @foreach($news as $new)
                                 <li>
@@ -46,9 +46,6 @@
                                                 {{$new->name}} </a>
                                         </div>
 
-                                        <div> Tác giả: <a
-                                                href="{{route('get-new', ['slug'=> $new->slug])}}"><span
-                                                    class="tacgia">  {{$new->author}} </span></a></div>
                                     </div>
                                 </li>
 
@@ -76,4 +73,11 @@
             </section>
         </div>
     </div>
+    <style>
+        .product-list li{ width: 25%;}
+        .product-list img {
+            width: 281px;
+            height: 310px;
+        }
+    </style>
 @endsection

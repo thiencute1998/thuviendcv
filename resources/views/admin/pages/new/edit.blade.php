@@ -22,7 +22,7 @@
                     <div class="col-12 mt-3">
                         <div class="card">
                             <div class="card-body">
-                                <form id="product-form" name="product-form" action="{{ route('admin-new-update', ['id'=> $calendar->id]) }}" enctype="multipart/form-data" method="POST">
+                                <form id="product-form" name="product-form" action="{{ route('admin-new-update', ['id'=> $new->id]) }}" enctype="multipart/form-data" method="POST">
                                     @csrf
                                     @if (session('add-success'))
                                         <h5 class="action-message mb-2 text-success">{{ session('add-success') }}</h5>
@@ -49,11 +49,11 @@
                                     <div class="row form-group">
                                         <div class="col-md-8">
                                             <label for="services" class="col-form-label">Tên(*)</label>
-                                            <input type="text" class="form-control" name="name" placeholder="Nhập tên tin" required value="{{$calendar->name}}">
+                                            <input type="text" class="form-control" name="name" placeholder="Nhập tên tin" required value="{{$new->name}}">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Loại tin</label>
-                                            <select class="form-control" name="new_type" data-value="{{ $calendar->new_type }}">
+                                            <select class="form-control" name="new_type" data-value="{{ $new->new_type }}">
                                                 <option value="1" selected>Tin tức</option>
                                                 <option value="2">Video</option>
                                                 <option value="3">Giờ mở cửa</option>

@@ -81,10 +81,13 @@
         </a>
     </div>
     <ul class="ul-first-menu">
-
+        @if($userLogin)
+            <li><a href="{{route('edit-password-user')}}"><i class="fa fa-key" aria-hidden="true"></i> Đổi mật khẩu</a></li>
+            <li><a href="{{route('get-logout-user')}}"><i class="fa fa-sign-out" aria-hidden="true"></i> Đăng xuất</a></li>
+        @else
         <li><a href="{{route('get-login-user')}}"><i class="ion ion-ios-log-in"></i> Đăng nhập</a></li>
         <li><a href="{{route('get-register-user')}}"><i class="ion ion-ios-person-add"></i> Đăng ký</a></li>
-
+        @endif
         <li><a href="{{route('get-account-info')}}"><i class="fa fa-user-secret" aria-hidden="true"></i> Thông tin tài khoản</a></li>
         <li><a href="{{route('get-book-borrow')}}"><i class="fa fa-address-card-o" aria-hidden="true"></i> Phiếu khách</a></li>
         <li><a href="{{route('get-book-favorite')}}"><i class="fa fa-id-badge" aria-hidden="true"></i> Sách yêu thích</a></li>
