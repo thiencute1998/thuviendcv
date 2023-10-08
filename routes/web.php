@@ -192,14 +192,14 @@ Route::get('register', [\App\Http\Controllers\Viewer\UserController::class, 'get
 Route::post('register', [\App\Http\Controllers\Viewer\UserController::class, 'register'])->name('post-register-user');
 Route::get('login', [\App\Http\Controllers\Viewer\UserController::class, 'getLogin'])->name('get-login-user');
 Route::post('login', [\App\Http\Controllers\Viewer\UserController::class, 'login'])->name('post-login-user');
-Route::get('logout', [\App\Http\Controllers\Viewer\UserController::class, 'logout'])->name('get-logout-user');
-Route::get('edit-password', [\App\Http\Controllers\Viewer\UserController::class, 'editPassword'])->name('edit-password-user');
-Route::post('update-password', [\App\Http\Controllers\Viewer\UserController::class, 'updatePassword'])->name('update-password-user');
+Route::get('logout', [\App\Http\Controllers\Viewer\UserController::class, 'logout'])->name('get-logout-user')->middleware('checkUserLogin');
+Route::get('edit-password', [\App\Http\Controllers\Viewer\UserController::class, 'editPassword'])->name('edit-password-user')->middleware('checkUserLogin');
+Route::post('update-password', [\App\Http\Controllers\Viewer\UserController::class, 'updatePassword'])->name('update-password-user')->middleware('checkUserLogin');
 
 Route::get('great/books',[IndexController::class, 'getAllGreatBook'])->name('get-all-great-book');
 Route::get('get-book-borrow', [IndexController::class, 'getBookBorrow'])->name('get-book-borrow');
 Route::post('post-book-borrow', [IndexController::class, 'postBookBorrow'])->name('post-book-borrow');
-Route::get('get-book-favorite', [IndexController::class, 'getBookFavorite'])->name('get-book-favorite');
+Route::get('get-book-favorite', [IndexController::class, 'getBookFavorite'])->name('get-book-favorite')->middleware('checkUserLogin');
 Route::post('add-book-favorite', [IndexController::class, 'addBookFavorite'])->name('add-book-favorite');
 Route::post('plus-count-book', [IndexController::class, 'plusCountBook'])->name('plus-count-book');
 Route::post('sign-up-email', [IndexController::class, 'signUpEmail'])->name('sign-up-email');

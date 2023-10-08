@@ -69,13 +69,9 @@ class IndexController extends Controller
     }
 
     public function getBookFavorite() {
-        if (auth()->user()) {
-            $bookFavorites = BookFavorite::where('user_id', auth()->user()->id)
-                ->with('book')->paginate(10);
-            return view('viewer.pages.book_favorite', compact('bookFavorites'));
-        } else {
-            return redirect()->route('get-login-user');
-        }
+        $bookFavorites = BookFavorite::where('user_id', auth()->user()->id)
+            ->with('book')->paginate(10);
+        return view('viewer.pages.book_favorite', compact('bookFavorites'));
 
     }
 
