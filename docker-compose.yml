@@ -31,6 +31,7 @@ services:
             -   ./routes:/var/www/html/thuviendcv/routes
             -   ./storage:/var/www/html/thuviendcv/storage
             -   ./database:/var/www/html/thuviendcv/database
+            -   ./config:/var/www/html/thuviendcv/config
             -   ./docker/nginx:/var/log/nginx
             -   ./docker/php-fpm/php-fpm.log:/var/log/php-fpm.log
 
