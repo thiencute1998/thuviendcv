@@ -3,9 +3,8 @@
 namespace App\Http\Requests\Viewer;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 
-class UserRegistierRequest extends FormRequest
+class ConfirmPasswordRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,19 +25,12 @@ class UserRegistierRequest extends FormRequest
     {
         return [
             //
-            'name'=> 'required',
-            'email'=> [
-                'required',
-                'email',
-                Rule::unique('users')->ignore($this->email),
+            'old_password'=> [
+                'required'
             ],
             'password'=> [
                 'required',
                 'confirmed'
-            ],
-            'code'=> [
-                'required',
-                Rule::unique('users')->ignore($this->code),
             ]
         ];
     }
@@ -46,8 +38,6 @@ class UserRegistierRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.unique'=> "Email đã tồn tại",
-            'code.unique'=> "Mã độc giả đã tồn tại",
             'password.confirmed'=> "Mật khẩu xác nhận không khớp"
         ];
     }

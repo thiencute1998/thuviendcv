@@ -19,7 +19,7 @@
         <!-- profile info & task notification -->
         <div class="col-md-6 col-sm-6 text-center">
             <div class="user-profile pull-right mr-1">
-                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ $userLogin ? $userLogin->name : "" }} <i class="fa fa-angle-down"></i></h4>
+                <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{ $adminLogin ? $adminLogin->name : "" }} <i class="fa fa-angle-down"></i></h4>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{route('edit-password')}}">Change password</a>
                     <a class="dropdown-item" href="{{route('logout-auth')}}">Log Out</a>

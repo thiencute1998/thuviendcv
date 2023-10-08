@@ -206,6 +206,13 @@ class IndexRepository extends BaseRepository {
             ->where('slug', $slug)->firstOrFail();
     }
 
+    public function getAllNewByType($type = 1) {
+        return NewEvent::where('status', 1)
+            ->where('new_type', $type)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+    }
+
 
 
     // ko dung

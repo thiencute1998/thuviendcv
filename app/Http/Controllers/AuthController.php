@@ -10,7 +10,7 @@ class AuthController extends Controller
     //
 
     public function index() {
-        if(Auth::check()) {
+        if(Auth::guard('admin')->check()){
             return redirect('admin');
         }
         return view('admin.login');
@@ -23,19 +23,16 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-        if (Auth::attempt($credentials)) {
-            if (\auth()->user()->role == 1) {
-                return redirect()->intended('admin')
-                    ->withSuccess('Signed in');
-            }
-            Auth::logout();
+        if (Auth::guard('admin')->attempt($credentials)) {
+            return redirect()->intended('admin')
+                ->withSuccess('Signed in');
         }
 
         return redirect()->route('login-index')->with('login-fail', 'Wrong email or password');
     }
 
     public function logout() {
-        Auth::logout();
+        Auth::guard('admin')->logout();
 
         return redirect()->route('login-index');
     }

@@ -7,18 +7,18 @@ use App\Models\Product;
 use App\Models\Admin;
 use App\Models\User;
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class AdminRepository extends BaseRepository {
     public function model()
     {
-        return User::class;
+        return Admin::class;
     }
 
     public function index($searchParams) {
         $query = $this->model->query();
-        $query->where('role', '=', 1);
         if (isset($searchParams['search'])) {
             $search = $searchParams['search'];
             $query->where('name', 'like', "$search%");
@@ -30,7 +30,6 @@ class AdminRepository extends BaseRepository {
     public function store($params) {
         $user = new $this->model;
         $params['password'] = Hash::make($params['password']);
-        $params['role'] = 1;
         $user->fill($params);
         $user->save();
     }
@@ -50,12 +49,12 @@ class AdminRepository extends BaseRepository {
     }
 
     public function editPassword() {
-        $user = auth()->user();
+        $user = Auth::guard('admin')->user();
         return view('admin.pages.user.edit_password', compact('user'));
     }
 
     public function updatePassword($params) {
-        Admin::where('id', auth()->user()->id)->update([
+        Admin::where('id', Auth::guard('admin')->user()->id)->update([
             'password'=> Hash::make($params['newPassword'])
         ]);
 

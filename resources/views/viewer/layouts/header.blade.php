@@ -77,10 +77,17 @@
                                 </button>
                                 <div class="customer-menu">
                                     <ul class="header links">
-                                        <li><a href="{{route('get-account-info')}}">Thông tin</a></li>
+                                        @if($userLogin)
+                                            <li><a href="{{route('get-account-info')}}">Thông tin</a></li>
+                                        @endif
                                         <li><a href="{{route('get-book-favorite')}}">Sách yêu thích</a></li>
                                         <li><a href="{{route('get-register-user')}}">Đăng ký</a></li>
-                                        <li><a href="{{route('get-login-user')}}">Đăng nhập</a></li>
+                                        @if($userLogin)
+                                            <li><a href="{{route('edit-password-user')}}">Đổi mật khẩu</a></li>
+                                            <li><a href="{{route('get-logout-user')}}">Đăng xuất</a></li>
+                                        @else
+                                            <li><a href="{{route('get-login-user')}}">Đăng nhập</a></li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>

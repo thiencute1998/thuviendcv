@@ -379,7 +379,7 @@
                         <h2 class="title-head">
                             Tin tức
                         </h2>
-{{--                        <a href="/blogs/news" class="news-more" title="Xem thêm">Xem thêm</a>--}}
+                        <a href="{{route('get-all-new')}}" class="news-more" title="Xem thêm">Xem thêm</a>
                     </div>
                     <div class="list-blogs-link">
                         <div class="row">
@@ -431,7 +431,7 @@
                         <h2 class="title-head">
                             Video
                         </h2>
-{{--                        <a href="/blogs/news" class="news-more" title="Xem thêm">Xem thêm</a>--}}
+                        <a href="{{route('get-all-video')}}" class="news-more" title="Xem thêm">Xem thêm</a>
                     </div>
                     <div class="list-blogs-link">
                         <div class="row">

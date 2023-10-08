@@ -61,23 +61,21 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($admins as $user)
-                                        @if($user->role ==1)
+                                    @foreach($admins as $admin)
                                         <tr>
-                                            <th scope="row">{{$user->name}}</th>
-                                            <td>{{$user->email}}</td>
+                                            <th scope="row">{{$admin->name}}</th>
+                                            <td>{{$admin->email}}</td>
                                             <td>
-                                                <a href="{{ route('admins-edit', ['id'=> $user->id]) }}">
+                                                <a href="{{ route('admins-edit', ['id'=> $admin->id]) }}">
                                                     <i class="fa fa-edit"></i>
                                                 </a>
-                                                <a class="user-remove" href="{{ route('admins-delete', ['id'=> $user->id]) }}"
-                                                   onclick="return confirm('Are you sure to delete user : {{ $user->name }} ?' )"
+                                                <a class="user-remove" href="{{ route('admins-delete', ['id'=> $admin->id]) }}"
+                                                   onclick="return confirm('Are you sure to delete user : {{ $admin->name }} ?' )"
                                                 >
                                                     <i class="ti-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                        @endif
                                     @endforeach
 
                                     </tbody>

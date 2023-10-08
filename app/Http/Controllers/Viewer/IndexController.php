@@ -133,6 +133,15 @@ class IndexController extends Controller
         return view('viewer.pages.video_detail', compact('video'));
     }
 
+    public function getAllNew() {
+        $news = $this->repository->getAllNewByType(1);
+        return view('viewer.pages.all_new', compact('news'));
+    }
+
+    public function getAllVideo() {
+        $videos = $this->repository->getAllNewByType(2);
+        return view('viewer.pages.all_video', compact('videos'));
+    }
 
 
     // Khong dung

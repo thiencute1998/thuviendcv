@@ -65,8 +65,6 @@ Route::prefix('admin')->middleware(['checkLogin'])->group(function () {
             Route::post('/update/{id}', [UserController::class, 'update'])->name('users-update');
             Route::get('/delete/{id}', [UserController::class, 'delete'])->name('users-delete');
             Route::post('/upload', [UserController::class, 'upload'])->name('users-upload');
-            Route::get('/edit-password', [UserController::class, 'editPassword'])->name('edit-password');
-            Route::post('/update-password', [UserController::class, 'updatePassword'])->name('update-password');
         });
 
         Route::prefix('admins')->group(function () {
@@ -194,6 +192,9 @@ Route::get('register', [\App\Http\Controllers\Viewer\UserController::class, 'get
 Route::post('register', [\App\Http\Controllers\Viewer\UserController::class, 'register'])->name('post-register-user');
 Route::get('login', [\App\Http\Controllers\Viewer\UserController::class, 'getLogin'])->name('get-login-user');
 Route::post('login', [\App\Http\Controllers\Viewer\UserController::class, 'login'])->name('post-login-user');
+Route::get('logout', [\App\Http\Controllers\Viewer\UserController::class, 'logout'])->name('get-logout-user');
+Route::get('edit-password', [\App\Http\Controllers\Viewer\UserController::class, 'editPassword'])->name('edit-password-user');
+Route::post('update-password', [\App\Http\Controllers\Viewer\UserController::class, 'updatePassword'])->name('update-password-user');
 
 Route::get('great/books',[IndexController::class, 'getAllGreatBook'])->name('get-all-great-book');
 Route::get('get-book-borrow', [IndexController::class, 'getBookBorrow'])->name('get-book-borrow');
@@ -212,6 +213,8 @@ Route::get('/search', [IndexController::class, 'search'])->name('search');
 Route::get('/account/info', [IndexController::class, 'getAccountInfo'])->name('get-account-info');
 Route::get('/new/{slug}', [IndexController::class, 'getNew'])->name('get-new');
 Route::get('/video/{slug}', [IndexController::class, 'getVideo'])->name('get-video');
+Route::get('/all/new', [IndexController::class, 'getAllNew'])->name('get-all-new');
+Route::get('/all/video', [IndexController::class, 'getAllVideo'])->name('get-all-video');
 
 Route::get('/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
 

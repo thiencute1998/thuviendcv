@@ -58,7 +58,7 @@ class AdminController extends Controller
         $validator = \Validator::make($request->all(),[
             'password'=>[
                 'required', function($attribute, $value, $fail){
-                    if( !\Hash::check($value, Auth::user()->password) ){
+                    if( !\Hash::check($value, Auth::guard('admin')->user()->password) ){
                         return $fail(__('The current password is incorrect'));
                     }
                 },

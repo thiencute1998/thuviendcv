@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Config;
 use App\Models\Link;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
@@ -43,10 +44,12 @@ class AppServiceProvider extends ServiceProvider
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
         $categories = Category::where('status', 1)->where('level', 1)->get();
         View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories){
-            $user = auth()->user();
+            $adminLogin = Auth::guard('admin')->user();
+            $userLogin = auth()->user();
 
             $data = [
-                'userLogin'=> $user,
+                'userLogin'=> $userLogin,
+                'adminLogin'=> $adminLogin,
                 'bannerApp'=> $bannerApp,
                 'logoWebsite'=> $logoWebsite,
                 'contactFooter'=> $contactFooter,

@@ -63,7 +63,6 @@
                                     </thead>
                                     <tbody>
                                     @foreach($users as $user)
-                                        @if($user->role ==2)
                                         <tr>
                                             <th scope="row">{{$user->name}}</th>
                                             <td>{{$user->email}}</td>
@@ -85,7 +84,6 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        @endif
                                     @endforeach
 
                                     </tbody>

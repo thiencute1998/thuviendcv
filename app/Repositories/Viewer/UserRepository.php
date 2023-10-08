@@ -41,4 +41,16 @@ class UserRepository extends BaseRepository {
 
         return redirect("login")->with('user-login-fail', 'Wrong email or password');
     }
+
+    public function editPassword() {
+        return view('viewer.pages.edit_password');
+    }
+
+    public function updatePassword($params) {
+        User::where('id', auth()->user()->id)->update([
+            'password'=> Hash::make($params['new_password'])
+        ]);
+
+        return 1;
+    }
 }

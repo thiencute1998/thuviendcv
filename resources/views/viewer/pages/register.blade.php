@@ -49,21 +49,21 @@
                                         <div class="field name-firstname">
                                             <label for="firstname" class="required"><em>*</em>Tên</label>
                                             <div class="input-box">
-                                                <input type="text" id="firstname" name="name" value="" title="Tên"
+                                                <input type="text" id="firstname" name="name" value="{{old("name")}}" title="Tên"
                                                        maxlength="255" class="input-text required-entry" required>
                                             </div>
                                         </div>
                                         <div class="field name-lastname">
                                             <label for="lastname" class="required"><em>*</em>Họ</label>
                                             <div class="input-box">
-                                                <input type="text" id="lastname" name="surname" value="" title="Họ"
+                                                <input type="text" id="lastname" name="surname" value="{{old("surname")}}" title="Họ"
                                                        maxlength="255" class="input-text required-entry">
                                             </div>
                                         </div>
                                         <div class="field name-lastname">
                                             <label for="lastname" class="required"><em>*</em>Địa chỉ email</label>
                                             <div class="input-box">
-                                                <input type="text" name="email" id="email_address" value="" title="Địa chỉ email"
+                                                <input type="email" name="email" id="email_address" value="{{old("email")}}"title="Địa chỉ email"
                                                        class="input-text validate-email required-entry" required>
                                             </div>
                                         </div>
@@ -123,15 +123,15 @@
                                     <li class="fields">
                                         <div class="field">
                                             <span class="field-row">
-                                            <label for="madocgia">Mã độc giả</label><div style="clear: both;"></div>
-                                            <input id="madocgia" name="code" value="" class=" input-text"
-                                                   type="text">
+                                            <label for="madocgia">Mã độc giả<em>*</em></label><div style="clear: both;"></div>
+                                            <input id="madocgia" name="code" value="{{old("code")}}" class=" input-text"
+                                                   type="text" required>
                                             <div style="padding: 4px;"></div></span>
                                         </div>
                                         <div class="field">
                                             <span class="field-row">
                                             <label for="sdt">Số điện thoại</label><div style="clear: both;"></div>
-                                            <input id="sdt" name="phone" value="" class=" input-text" type="text">
+                                            <input id="sdt" name="phone" value="{{old("phone")}}" class=" input-text" type="text">
                                             <div style="padding: 4px;"></div></span>
                                         </div>
                                     </li>

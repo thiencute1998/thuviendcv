@@ -48,30 +48,4 @@ class UserController extends Controller
         $this->repository->delete($id);
         return redirect()->back()->with('delete-success', 'Delete success !!!');
     }
-
-    public function editPassword() {
-        return $this->repository->editPassword();
-    }
-
-    public function updatePassword(Request $request) {
-        //Validate form
-        $validator = \Validator::make($request->all(),[
-            'password'=>[
-                'required', function($attribute, $value, $fail){
-                    if( !\Hash::check($value, Auth::user()->password) ){
-                        return $fail(__('The current password is incorrect'));
-                    }
-                },
-                'max:30'
-            ],
-            'newPassword'=>'required|max:30',
-            'confirmNewPassword'=>'required|same:newPassword'
-        ]);
-
-        if( !$validator->passes() ){
-            return response()->json(['error'=>$validator->errors()->toArray()], 422);
-        }else{
-            return $this->repository->updatePassword($request->all());
-        }
-    }
 }
