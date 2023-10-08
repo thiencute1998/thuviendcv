@@ -34,28 +34,28 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Paginator::useBootstrap();
-        $bannerApp = Banner::where('status', 1)->first();
-        // Logo
-        $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();
-        $contactFooter = About::first();
-        //Config
-        $config = Config::first();
-        $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
-        $categories = Category::where('status', 1)->where('level', 1)->get();
-        View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories){
-            $user = auth()->user();
-
-            $data = [
-                'userLogin'=> $user,
-                'bannerApp'=> $bannerApp,
-                'logoWebsite'=> $logoWebsite,
-                'contactFooter'=> $contactFooter,
-                'config'=> $config,
-                'linkmn'=> $links,
-                'categoriemn'=> $categories
-            ];
-            $view->with($data);
-        });
+//        $bannerApp = Banner::where('status', 1)->first();
+//        // Logo
+//        $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();
+//        $contactFooter = About::first();
+//        //Config
+//        $config = Config::first();
+//        $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
+//        $categories = Category::where('status', 1)->where('level', 1)->get();
+//        View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories){
+//            $user = auth()->user();
+//
+//            $data = [
+//                'userLogin'=> $user,
+//                'bannerApp'=> $bannerApp,
+//                'logoWebsite'=> $logoWebsite,
+//                'contactFooter'=> $contactFooter,
+//                'config'=> $config,
+//                'linkmn'=> $links,
+//                'categoriemn'=> $categories
+//            ];
+//            $view->with($data);
+//        });
 
     }
 }
