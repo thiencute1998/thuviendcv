@@ -40,9 +40,9 @@
                                         @endforeach
                                     </div>
                                 @endif
-                                <div class="page-title">
-                                    <h1>Liên hệ với chúng tôi</h1>
-                                </div>
+{{--                                <div class="page-title">--}}
+{{--                                    <h1>Liên hệ với chúng tôi</h1>--}}
+{{--                                </div>--}}
                                 <form action="{{route('post-contact')}}" method="POST" class="scaffold-form">
                                     @csrf
                                     <div class="fieldset">
@@ -92,7 +92,11 @@
                                     //]]>
                                 </script>
                             </div>
-                            <div class="map-lienhe"><iframe style="border: 0;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3741.8204513861797!2d106.32791071420996!3d20.307697686393293!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3136081bf5401f19%3A0x4d70ea8b925f2703!2zTmjDoCB0aOG7nSB2w6AgdMOyYSBnacOhbSBt4bulYyBCw7lpIENodQ!5e0!3m2!1sen!2s!4v1453913690013" height="450" width="100%"></iframe></div>
+                            <div class="map-lienhe">
+                                @if($contactWebsite)
+                                    {!! $contactWebsite->bando !!}
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>

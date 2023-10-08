@@ -105,7 +105,7 @@
                                             <td style="vertical-align: middle;">
                                                 @if($new->new_type==2)
                                                     <span class="text-success">Video</span>
-                                                @elseif($new->status==3)
+                                                @elseif($new->new_type==3)
                                                     <span class="text-success" style="color: #28a745">Giờ mở cửa</span>
                                                 @else
                                                     <span class="text-danger">Tin tức</span>
