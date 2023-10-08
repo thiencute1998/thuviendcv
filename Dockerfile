@@ -9,13 +9,13 @@ RUN ln -s /usr/share/zoneinfo/Asia/Ho_Chi_Minh /etc/localtime
 
 WORKDIR /var/www/html/thuviendcv
 
-RUN php artisan view:clear
-RUN php artisan route:clear
-RUN php artisan config:cache
-RUN php artisan config:clear
-RUN php artisan cache:clear
-
-RUN chmod -R 777 storage/
+#RUN php artisan view:clear
+#RUN php artisan route:clear
+#RUN php artisan config:cache
+#RUN php artisan config:clear
+#RUN php artisan cache:clear
+#
+#RUN chmod -R 777 storage/
 
 
 
