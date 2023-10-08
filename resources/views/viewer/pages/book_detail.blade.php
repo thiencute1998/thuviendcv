@@ -40,35 +40,34 @@
                             <tr>
                                 <td class="tentp" colspan="2" data-value="{{$bookDetail->name}}" data-slug="{{$bookDetail->slug}}">{{$bookDetail->name}}</td>
                             </tr>
-                            <tr>
-                                <td class="reg-content">Nguyên tác:</td>
-                                <td>Bản tin hiệp thông của Hội Đồng Giám Mục Việt Nam Số 134 (tháng 3 và 4 năm 2023)
-                                </td>
-                            </tr>
+{{--                            <tr>--}}
+{{--                                <td class="reg-content">Nguyên tác:</td>--}}
+{{--                                <td>                                                            --}}
+{{--                                </td>--}}
+{{--                            </tr>--}}
                             <tr>
                                 <td class="tentg" data-value="{{$bookDetail->author}}">Tác giả:</td>
                                 <td>{{$bookDetail->author}}</td>
                             </tr>
                             <tr>
                                 <td class="reg-content">Ký hiệu tác giả:</td>
-                                <td>
-                                    NHI<br/></td>
+                                <td>{{$bookDetail->book_authorsymbol}}<br/></td>
                             </tr>
                             <tr class="ddc" data-value="1">
                                 <td>DDC:</td>
-                                <td>253.05 - Ấn phẩm định kỳ về mục vụ Kitô giáo</td>
+                                <td class="ddc-name" data-value="{{$bookDetail->category_name}}">{{$bookDetail->category_name}}</td>
                             </tr>
                             <tr class="reg-content">
                                 <td>Ngôn ngữ:</td>
-                                <td>Việt</td>
+                                <td>{{$bookDetail->book_language}}</td>
                             </tr>
                             <tr class="reg-content">
                                 <td>Tập - số:</td>
-                                <td>S134</td>
+                                <td class="episode" data-value="{{$bookDetail->book_episode}}">{{$bookDetail->book_episode}}</td>
                             </tr>
                             <tr class="reg-content">
                                 <td>Số cuốn:</td>
-                                <td>3</td>
+                                <td>{{$bookDetail->book_number}}</td>
                             </tr>
                         </table>
                         <p class="banso-title">Hiện trạng các bản sách</p>
@@ -228,7 +227,9 @@
                         code: code,
                         name: $('.tentp').data('value'),
                         slug: $('.tentp').data('slug'),
-                        author: $('.tentg').data('value')
+                        author: $('.tentg').data('value'),
+                        episode: $('.episode').data('value'),
+                        ddc:  $('.ddc-name').data('value')
                     }
                     muonsach.push(obj)
                     setCookie(cookieName, JSON.stringify(muonsach));

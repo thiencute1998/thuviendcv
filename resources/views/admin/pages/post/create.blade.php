@@ -75,7 +75,7 @@
                                     <div class="row form-group">
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Phụ đề</label>
-                                            <input type="text" name="book_subtitle" class="form-control">
+                                            <input type="text" name="subtitle" class="form-control">
                                         </div>
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Tác giả</label>

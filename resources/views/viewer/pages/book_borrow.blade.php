@@ -122,7 +122,7 @@
                                                             <td><label for="email" class="required"><em>*</em>Mã độc giả</label></td>
                                                             <td class="input-box">
                                                                 <input type="text" name="madocgia" value="{{$reader ? $reader->code : ""}}" id="madocgia"
-                                                                       class="input-text required-entry validation-failed"
+                                                                       class="input-text required-entry validation-failed" readonly="true"
                                                                        title="Mã độc giả(nếu có)" required>
                                                             </td>
                                                         </tr>
@@ -218,11 +218,11 @@
                 '<td>' + Number(key + 1) + '</td>' +
                 '<td>' + value.code + '</td>' +
                 '<td><a href="' + routeName + '"> <b>' + value.name + '</b></a></td>' +
-                '<td> </td>' +
-                '<td> </td>' +
+                '<td>' + value.episode + ' </td>' +
+                '<td>' + value.ddc + ' </td>' +
                 '<td>' + value.author + '</td>' +
                 '<td><span style="cursor: pointer">' +
-                    '<img data-code="' + value.code +'" class="remove-muon-sach" src="https://thuviendcv.gpbuichu.org/skin/frontend/rwd/thuvien/images/delete.png"></span> </td>' +
+                    '<img data-code="' + value.code +'" class="remove-muon-sach" src="assets/viewer/style/images/delete.png"></span> </td>' +
                 '</tr>'
             })
             $('.th-muon-sach').after(html);
