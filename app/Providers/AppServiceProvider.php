@@ -34,7 +34,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Paginator::useBootstrap();
-
         $bannerApp = Banner::where('status', 1)->first();
         // Logo
         $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();

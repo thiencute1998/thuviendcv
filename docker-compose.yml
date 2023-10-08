@@ -1,6 +1,6 @@
 version: "3.3"
 services:
-    mysql:
+    thuviendcv_mysql:
         image: mariadb:10.6
         container_name: thuviendcv_mysql
         ports:
@@ -17,11 +17,11 @@ services:
         volumes:
             -   ./docker/mysql:/var/lib/mysql
 
-    web:
+    thuviendcv_web:
         image: thuviendcv
         container_name: thuviendcv_web
         ports:
-            - "8002:80"
+            - "8003:8003"
         restart: unless-stopped
         working_dir: /var/www/html/thuviendcv
         volumes:
@@ -37,9 +37,9 @@ services:
         networks:
             - thuviendcv-network
         links:
-            -   mysql
+            -   thuviendcv_mysql
         depends_on:
-            -   mysql
+            -   thuviendcv_mysql
 networks:
     thuviendcv-network:
         driver: bridge

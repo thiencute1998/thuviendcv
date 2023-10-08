@@ -14,7 +14,7 @@ WORKDIR /var/www/html/thuviendcv
 #RUN php artisan config:cache
 #RUN php artisan config:clear
 #RUN php artisan cache:clear
-
+#
 #RUN chmod -R 777 storage/
 
 
