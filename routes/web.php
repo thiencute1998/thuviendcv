@@ -201,6 +201,7 @@ Route::post('post-book-borrow', [IndexController::class, 'postBookBorrow'])->nam
 Route::get('get-book-favorite', [IndexController::class, 'getBookFavorite'])->name('get-book-favorite');
 Route::post('add-book-favorite', [IndexController::class, 'addBookFavorite'])->name('add-book-favorite');
 Route::post('plus-count-book', [IndexController::class, 'plusCountBook'])->name('plus-count-book');
+Route::post('sign-up-email', [IndexController::class, 'signUpEmail'])->name('sign-up-email');
 
 Route::get('/introduce', [IndexController::class, 'getIntroduce'])->name('introduce');
 Route::get('/rule', [IndexController::class, 'getRule'])->name('rule');
@@ -213,6 +214,7 @@ Route::get('/new/{slug}', [IndexController::class, 'getNew'])->name('get-new');
 Route::get('/video/{slug}', [IndexController::class, 'getVideo'])->name('get-video');
 
 Route::get('/{cate}', [IndexController::class, 'getCate'])->name('get-cate');
+
 
 
 // Chua dung

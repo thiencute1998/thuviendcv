@@ -50,15 +50,15 @@
                             <div class="footer-content">Chúng tôi sẽ gửi bài viết mới và lời của Chúa qua email của bạn
                                 <div class="block newsletter">
                                     <div class="content">
-                                        <form class="form subscribe" action="" method="post"
-                                              id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-                                              target="_blank">
+{{--                                        <form class="form subscribe" action="" method="post"--}}
+{{--                                              id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"--}}
+{{--                                              target="_blank">--}}
                                             <div class="field newsletter">
                                                 <div class="control">
                                                     <input name="email" type="email" id="newsletter" value=""
                                                            placeholder="Nhập địa chỉ Email của bạn" required>
                                                     <div class="regdit-mail">
-                                                        <button class="action subscribe primary" name="subscribe"
+                                                        <button class="action subscribe primary em-sign-up" name="subscribe"
                                                                 title="Đăng ký" type="submit"><i
                                                                 class="fa fa-paper-plane" aria-hidden="true"></i>
                                                         </button>
@@ -71,7 +71,7 @@
                                                 </div>
                                             </div>
 
-                                        </form>
+{{--                                        </form>--}}
                                     </div>
                                 </div>
                             </div>
@@ -102,3 +102,35 @@
 
     </div>
 </footer>
+
+{{$config->code_facebook}}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.em-sign-up').on('click', function() {
+            let email = $('#newsletter').val();
+            if (email) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: "{{route('sign-up-email')}}",
+                    type: "post",
+                    data: {
+                        _token: "{{ csrf_token() }}",
+                        email: $('#newsletter').val()
+                    },
+                    success: function(res){
+                        // $('#emailModal').addClass('active');
+                        // var emailPopup = $('.em-modal-popup');
+                        // $(emailPopup[1]).addClass('active');
+                        $('#newsletter').val('');
+                        alert('Đăng ký nhận tin thành công.');
+                    }
+                })
+            }
+
+        })
+    });
+</script>

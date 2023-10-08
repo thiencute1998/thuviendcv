@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\User;
 use App\Repositories\Viewer\IndexRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class IndexController extends Controller
 {

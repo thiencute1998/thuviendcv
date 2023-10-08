@@ -59,10 +59,11 @@
                                         <div class="item">
                                             <a href="{{route('get-cate', ['cate'=> $greatBook->slug])}}" class="clearfix">
                                                 <picture>
-                                                    <img src="{{asset('upload/admin/post/image/' . $greatBook->image)}}" alt=""
+                                                    <img src="{{$greatBook->image ? asset('upload/admin/post/image/' . $greatBook->image) : "assets/viewer/style/images/noname.jpg"}}" alt="{{$greatBook->name}}"
                                                          class="img-responsive center-block" width="278" height="421"/>
                                                 </picture>
                                             </a>
+                                            <p style="width: 48%; margin: auto; opacity: 0.8; background: rgba(80, 80, 80, 0.75); padding: 5px; color: #FFF">{{$greatBook->name}}</p>
                                         </div>
                                         @endif
                                     @endforeach

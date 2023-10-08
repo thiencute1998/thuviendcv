@@ -82,12 +82,12 @@
     </div>
     <ul class="ul-first-menu">
 
-        <li><a href="/account/login"><i class="ion ion-ios-log-in"></i> Đăng nhập</a></li>
-        <li><a href="/account/register"><i class="ion ion-ios-person-add"></i> Đăng ký</a></li>
+        <li><a href="{{route('get-login-user')}}"><i class="ion ion-ios-log-in"></i> Đăng nhập</a></li>
+        <li><a href="{{route('get-register-user')}}"><i class="ion ion-ios-person-add"></i> Đăng ký</a></li>
 
-        <li><a href=""><i class="fa fa-user-secret" aria-hidden="true"></i> Thông tin tài khoản</a></li>
-        <li><a href=""><i class="fa fa-address-card-o" aria-hidden="true"></i> Phiếu khách</a></li>
-        <li><a href=""><i class="fa fa-id-badge" aria-hidden="true"></i> Sách yêu thích</a></li>
+        <li><a href="{{route('get-account-info')}}"><i class="fa fa-user-secret" aria-hidden="true"></i> Thông tin tài khoản</a></li>
+        <li><a href="{{route('get-book-borrow')}}"><i class="fa fa-address-card-o" aria-hidden="true"></i> Phiếu khách</a></li>
+        <li><a href="{{route('get-book-favorite')}}"><i class="fa fa-id-badge" aria-hidden="true"></i> Sách yêu thích</a></li>
 
     </ul>
     <div class="la-scroll-fix-infor-user">
@@ -98,71 +98,44 @@
             <ul class="la-nav-list-items">
 
                 <li class="ng-scope">
-                    <a href="/">Trang chủ</a>
+                    <a href="{{route('index')}}">Trang chủ</a>
                 </li>
                 <li class="ng-scope sub-menu">
                     <a href="javascrip:void();">Danh mục sách <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 
                     <ul id="menu" class="mb-danhmucsach">
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/000/">000
-                                - Tổng quát</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/100/">100
-                                - Triết học</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/200/">200
-                                - Tôn giáo</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/300/">300
-                                - Khoa học xã hội</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/400/">400
-                                - Ngôn ngữ</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/500/">500
-                                - KH Tự Nhiên - Toán Học</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/600/">600
-                                - Khoa học ứng dụng</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/700/">700
-                                - Nghệ thuật</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/800/">800
-                                - Văn Học - Tu Từ Học</a>
-                        </li>
-                        <li>
-                            <a href="https://thuviendcv.gpbuichu.org/index.php/thuvien/catalog_category/list10/id/900/">900
-                                - Lịch sử - Địa lý </a>
-                        </li>
+                        @foreach($categoriemn as $category)
+                            <li>
+                                <a href="{{route('get-cate', ['cate'=> $category->slug])}}">{{$category->name}}</a>
+                            </li>
+                        @endforeach
+
                     </ul>
 
                 </li>
                 <li class="ng-scope">
-                    <a href="/pages/about-us">Giới thiệu</a>
+                    <a href="{{route('introduce')}}">Giới thiệu</a>
                 </li>
                 <li class="ng-scope">
-                    <a href="/collections/all">Nội quy</a>
+                    <a href="{{route('rule')}}">Nội quy</a>
                 </li>
                 <li class="ng-scope">
-                    <a href="/blogs/news">Hướng dẫn</a>
+                    <a href="{{route('instruct')}}">Hướng dẫn</a>
                 </li>
 
                 <li class="ng-scope">
-                    <a href="/pages/lien-he">Liên hệ</a>
+                    <a href="{{route('contact')}}">Liên hệ</a>
                 </li>
 
                 <li class="ng-scope">
                     <a href="/pages/lien-he">Liên kết</a>
+                    <ul>
+                        @foreach($linkmn as $link)
+                            <li class="level1 item">
+                                <a href="{{$link->link}}"><span>{{$link->name}}</span></a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </li>
 
             </ul>

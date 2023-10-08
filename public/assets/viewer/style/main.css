@@ -744,6 +744,9 @@ ul.product-list li:nth-child(6) { clear:both;}
 .header-top-categories .danhmucsach{
     display: none;
 	background:#FFF;
+    position: absolute;
+    z-index: 999 !important;
+    left: 0;
 }
 .header-top-categories:hover .danhmucsach{
     display: block;

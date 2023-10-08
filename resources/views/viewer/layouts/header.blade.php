@@ -19,8 +19,17 @@
         <div class="container">
             <div class="row">
                 <div class="menu-bt">
-                    <div class="col-md-3 padding-b hidden-sm hidden-xs">
-                        <div class="css-home"><a href="{{route('index')}}"><i class="fa fa-home" aria-hidden="true"></i></a> Danh mục sách</div>
+                    <div class="col-md-3 padding-b hidden-sm hidden-xs header-top-categories">
+                        <div class="css-home"><a href="{{route('index')}}"><i class="fa fa-home" aria-hidden="true"></i></a> Danh mục sách <span><i class="fa fa-chevron-down" aria-hidden="true"></i></span></div>
+                        <div class="danhmucsach">
+                            <ul id="menu">
+                                @foreach($categoriemn as $category)
+                                    <li><i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                        <a href="{{route('get-cate', ['cate'=> $category->slug])}}">{{$category->name}}</a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                     <div class="col-md-6 padding-b">
                         <form class="input-group search-bar search_form" action="{{route('search')}}" method="get" role="search" id="voice-search">
