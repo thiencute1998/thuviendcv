@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Viewer;
 
+use App\Models\About;
 use App\Models\BannerContact;
 use App\Models\Config;
 use App\Models\ContactUs;

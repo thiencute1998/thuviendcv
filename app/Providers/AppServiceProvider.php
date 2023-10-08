@@ -42,7 +42,9 @@ class AppServiceProvider extends ServiceProvider
         $config = Config::first();
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
         $categories = Category::where('status', 1)->where('level', 1)->get();
-        View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories){
+        // Lien he
+        $contactWebsite = About::first();
+        View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories, $contactWebsite){
             $user = auth()->user();
 
             $data = [
@@ -52,7 +54,8 @@ class AppServiceProvider extends ServiceProvider
                 'contactFooter'=> $contactFooter,
                 'config'=> $config,
                 'linkmn'=> $links,
-                'categoriemn'=> $categories
+                'categoriemn'=> $categories,
+                'contactWebsite'=> $contactWebsite
             ];
             $view->with($data);
         });
