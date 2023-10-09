@@ -756,7 +756,7 @@ ul.product-list li:nth-child(6) { clear:both;}
 .name-firstname label, .name-lastname label{ height: 38px !important;}
 .field input { margin-bottom: 5px; }
 footer .back-to-top { background-color: #268102 !important;}
-.section-news-owl .owl-carousel .owl-item img {
+.section-news-owl .owl-item img {
     width: auto;
     height: 268px;
 }
