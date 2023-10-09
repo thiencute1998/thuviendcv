@@ -9,7 +9,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <img src="{{ asset('upload/admin/banner/image/' . (isset($bannerApp->image) ? $bannerApp->image : "")) }}" height="349" title="Banner" alt="Banner">
+                    <a href="{{route('index')}}"><img src="{{ asset('upload/admin/banner/image/' . (isset($bannerApp->image) ? $bannerApp->image : "")) }}" height="349" title="Banner" alt="Banner"></a>
                 </div>
 
             </div>

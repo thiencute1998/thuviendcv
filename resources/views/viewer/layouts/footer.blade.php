@@ -102,8 +102,10 @@
 
     </div>
 </footer>
+<style type="text/css">
+    {{$config->code_facebook}}
+</style>
 
-{{$config->code_facebook}}
 <script type="text/javascript">
     $(document).ready(function() {
         $('.em-sign-up').on('click', function() {

@@ -121,9 +121,15 @@
                                                         <tbody><tr>
                                                             <td><label for="email" class="required"><em>*</em>Mã độc giả</label></td>
                                                             <td class="input-box">
+                                                                @if($reader && $reader->code)
                                                                 <input type="text" name="madocgia" value="{{$reader ? $reader->code : ""}}" id="madocgia"
-                                                                       class="input-text required-entry validation-failed" readonly="true"
+                                                                       class="input-text required-entry validation-failed"  readonly="true"
                                                                        title="Mã độc giả(nếu có)" required>
+                                                                @else
+                                                                    <input type="text" name="madocgia" value="{{$reader ? $reader->code : ""}}" id="madocgia"
+                                                                           class="input-text required-entry validation-failed"
+                                                                           title="Mã độc giả(nếu có)" required>
+                                                                @endif
                                                             </td>
                                                         </tr>
                                                         <tr>
