@@ -5,23 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>THƯ VIỆN NHÀ ỨNG SINH THÁNH PHÊRÔ NGUYỄN VĂN TỰ </title>
     <!-- ================= Page description ================== -->
-
     <meta name="description" content="">
-
     <!-- ================= Meta ================== -->
     <meta name="keywords" content=", "/>
     <link rel="canonical" href="https://thuvienabc.com/"/>
     <meta name='revisit-after' content='1 days'/>
     <meta name="robots" content="noodp,index,follow"/>
     <!-- ================= Favicon ================== -->
-
     <link rel="icon" href="//theme.hstatic.net/1000343108/1000435493/14/favicon.png?v=230" type="image/x-icon"/>
-
     <meta property="og:type" content="website">
     <meta property="og:title" content="THƯ VIỆN NHÀ ỨNG SINH THÁNH PHÊRÔ NGUYỄN VĂN TỰ">
     <meta property="og:image" content="http://theme.hstatic.net/1000343108/1000435493/14/logo.png?v=230">
     <meta property="og:image:secure_url" content="https://theme.hstatic.net/1000343108/1000435493/14/logo.png?v=230">
-
     <meta property="og:description" content="">
     <meta property="og:url" content="https://thuvienabc.com/">
     <meta property="og:site_name" content="">
@@ -30,8 +25,7 @@
     <link rel="stylesheet" href="{{ asset('assets/viewer/style/style.css') }}">
     <link href="{{ asset('assets/viewer/style/plugin.css?v=230') }}" rel='stylesheet' type='text/css' media='all'/>
     <link href="{{ asset('assets/viewer/style/base.css?v=230') }}" rel='stylesheet' type='text/css' media='all'/>
-    <link href="{{ asset('assets/viewer/style/ant-furniture.css?v=230') }}" rel='stylesheet' type='text/css'
-          media='all'/>
+    <link href="{{ asset('assets/viewer/style/ant-furniture.css?v=230') }}" rel='stylesheet' type='text/css' media='all'/>
     <script src="{{ asset('assets/viewer/js/jquery-2.2.3.min.js?v=230') }}" type='text/javascript'></script>
     <link href="{{ asset('assets/viewer/style/main.css') }}" rel='stylesheet' type='text/css' media='all'/>
 </head>
@@ -145,15 +139,13 @@
 
         </div>
     </div>
-    <ul class="mobile-support">
-        <li>
-            <div class="drawer-text-support">HỖ TRỢ</div>
-        </li>
-
-        <li><i class="fa fa-phone" aria-hidden="true"></i> HOTLINE: <a href="tel:"></a></li>
-        <li><i class="fa fa-envelope" aria-hidden="true"></i> EMAIL: <a href="mailto:"></a></li>
-
-    </ul>
+{{--    <ul class="mobile-support">--}}
+{{--        <li>--}}
+{{--            <div class="drawer-text-support">HỖ TRỢ</div>--}}
+{{--        </li>--}}
+{{--        <li><i class="fa fa-phone" aria-hidden="true"></i> HOTLINE: <a href="tel:"></a></li>--}}
+{{--        <li><i class="fa fa-envelope" aria-hidden="true"></i> EMAIL: <a href="mailto:"></a></li>--}}
+{{--    </ul>--}}
 </div>
 </body>
 </html>
