@@ -97,7 +97,7 @@
                 <li class="ng-scope">
                     <a href="{{route('index')}}">Trang chủ</a>
                 </li>
-                <li class="ng-scope sub-menu">
+                <li class="ng-scope sub-menu" id="danhmucs">
                     <a href="javascrip:void();">Danh mục sách <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
 
                     <ul id="menu" class="mb-danhmucsach">
@@ -146,6 +146,14 @@
 {{--        <li><i class="fa fa-phone" aria-hidden="true"></i> HOTLINE: <a href="tel:"></a></li>--}}
 {{--        <li><i class="fa fa-envelope" aria-hidden="true"></i> EMAIL: <a href="mailto:"></a></li>--}}
 {{--    </ul>--}}
+    <script  type="text/javascript">
+        $(document).ready(function(){
+            $("#danhmucs").click(function(){
+                $("ul#menu").toggle();
+            });
+        });
+    </script>
+
 </div>
 </body>
 </html>
