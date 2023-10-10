@@ -761,6 +761,7 @@ footer .back-to-top { background-color: #268102 !important;}
     height: 268px;
 }
 .book-infor .prodouct-name{ padding-top: 10px;}
+.category-list .ddc-list-10 .ddc-list-item:nth-child(3n+1){ clear: both;}
 
 
 /*Mobile*/
@@ -991,7 +992,7 @@ footer .back-to-top { background-color: #268102 !important;}
     background-color: #268102;
     display: block;
     width: 22px;
-    height: 2px;
+    height: 3px;
     border-radius: 1px;
 	}
 	.col-100-h{ height: auto !important}
@@ -1001,4 +1002,15 @@ footer .back-to-top { background-color: #268102 !important;}
 	.mb-danhmucsach{ display:none;}
 	.sub-menu{ overflow:auto !important; height:auto !important;}
 	.sub-menu:hover .mb-danhmucsach{ display:block;}
+    .col-100-h .navbar-toggle{
+        background: #fff;
+        padding: 3px 6px 7px 6px;
+        margin-left: 5px;
+    }
+    .phieusach .list-tacpham{ overflow-x: auto}
+    .phieusach .list-tacpham table{ width: 669px;}
+    .detail-information textarea, .detail-information input.input-text{ width: 100% !important;}
+    .section_product .content .ant-product-item .product-item-photo img{ height: auto !important;}
+    .product-list li, .product-list li, .product-list li, .thuvien-tacgia-listp .col-main .product-list li{ width: 50%;}
+    .product-list li:nth-child(2n+1){ clear: both;}
 }
