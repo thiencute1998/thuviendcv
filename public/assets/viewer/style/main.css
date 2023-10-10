@@ -1004,8 +1004,8 @@ footer .back-to-top { background-color: #268102 !important;}
 	.sub-menu:hover .mb-danhmucsach{ display:block;}
     .col-100-h .navbar-toggle{
         background: #fff;
-        padding: 3px 6px 7px 6px;
-        margin-left: 5px;
+        padding: 3px 6px 7px 6px !important;
+        margin-left: 5px !important;
     }
     .phieusach .list-tacpham{ overflow-x: auto}
     .phieusach .list-tacpham table{ width: 669px;}
