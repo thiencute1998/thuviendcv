@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         //Config
         $config = Config::first();
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
-        $categories = Category::where('status', 1)->where('level', 1)->get();
+        $categories = Category::where('status', 1)->where('level', 1)->orderBy('order', 'asc')->get();
         // Lien he
         $contactWebsite = About::first();
         View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories, $contactWebsite){
