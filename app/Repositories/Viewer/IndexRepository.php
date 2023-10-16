@@ -28,7 +28,7 @@ class IndexRepository extends BaseRepository {
     }
 
     public function index() {
-        $categories = Category::where('status', 1)->where('level', 1)->get();
+        $categories = Category::where('status', 1)->where('level', 1)->orderBy('order', 'asc')->get();
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
         $newBooks = Post::where('status', 1)->orderBy('created_at', 'asc')->take(10)->get();
         $greatBooks = Post::where('status', 1)->orderBy('views', 'desc')->take(10)->get(); // Lay chua dung
