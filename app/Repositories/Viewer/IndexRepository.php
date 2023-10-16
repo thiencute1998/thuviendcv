@@ -160,7 +160,7 @@ class IndexRepository extends BaseRepository {
     }
 
     public function getCategoryLevel($level) {
-        return Category::where('status', 1)->where('level', $level)->get();
+        return Category::where('status', 1)->where('level', $level)->orderBy('order', 'asc')->get();
     }
 
     public function getConfig($view) {
