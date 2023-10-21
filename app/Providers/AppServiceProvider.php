@@ -9,6 +9,7 @@ use App\Models\Config;
 use App\Models\Link;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        URL::forceScheme('https');
         Paginator::useBootstrap();
         $bannerApp = Banner::where('status', 1)->first();
         // Logo
