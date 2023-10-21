@@ -35,33 +35,33 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Paginator::useBootstrap();
-        $bannerApp = Banner::where('status', 1)->first();
-        // Logo
-        $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();
-        $contactFooter = About::first();
-        //Config
-        $config = Config::first();
-        $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
-        $categories = Category::where('status', 1)->where('level', 1)->orderBy('order', 'asc')->get();
-        // Lien he
-        $contactWebsite = About::first();
-        View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories, $contactWebsite){
-            $adminLogin = Auth::guard('admin')->user();
-            $userLogin = auth()->user();
-
-            $data = [
-                'userLogin'=> $userLogin,
-                'adminLogin'=> $adminLogin,
-                'bannerApp'=> $bannerApp,
-                'logoWebsite'=> $logoWebsite,
-                'contactFooter'=> $contactFooter,
-                'config'=> $config,
-                'linkmn'=> $links,
-                'categoriemn'=> $categories,
-                'contactWebsite'=> $contactWebsite
-            ];
-            $view->with($data);
-        });
+//        $bannerApp = Banner::where('status', 1)->first();
+//        // Logo
+//        $logoWebsite = Banner::where('status', 1)->where('type', 5)->first();
+//        $contactFooter = About::first();
+//        //Config
+//        $config = Config::first();
+//        $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
+//        $categories = Category::where('status', 1)->where('level', 1)->orderBy('order', 'asc')->get();
+//        // Lien he
+//        $contactWebsite = About::first();
+//        View::composer('*', function ($view) use($bannerApp,$logoWebsite, $contactFooter, $config, $links, $categories, $contactWebsite){
+//            $adminLogin = Auth::guard('admin')->user();
+//            $userLogin = auth()->user();
+//
+//            $data = [
+//                'userLogin'=> $userLogin,
+//                'adminLogin'=> $adminLogin,
+//                'bannerApp'=> $bannerApp,
+//                'logoWebsite'=> $logoWebsite,
+//                'contactFooter'=> $contactFooter,
+//                'config'=> $config,
+//                'linkmn'=> $links,
+//                'categoriemn'=> $categories,
+//                'contactWebsite'=> $contactWebsite
+//            ];
+//            $view->with($data);
+//        });
 
     }
 }
