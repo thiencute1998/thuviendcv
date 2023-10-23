@@ -32,8 +32,8 @@ class IndexRepository extends BaseRepository {
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
         $newBooks = Post::where('status', 1)->orderBy('created_at', 'asc')->take(10)->get();
         $greatBooks = Post::where('status', 1)->orderBy('views', 'desc')->take(10)->get(); // Lay chua dung
-        $news = NewEvent::where('status', 1)->where('new_type', 1)->take(10)->get();
-        $videos = NewEvent::where('status', 1)->where('new_type', 2)->take(10)->get();
+        $news = NewEvent::where('status', 1)->where('new_type', 1)->orderBy('order', 'asc')->take(10)->get();
+        $videos = NewEvent::where('status', 1)->where('new_type', 2)->orderBy('order', 'asc')->take(10)->get();
         $giomc = NewEvent::where('status', 1)->where('new_type', 3)->get();
         return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos', 'giomc'));
     }
