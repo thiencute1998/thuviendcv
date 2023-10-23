@@ -24,9 +24,9 @@
                     <li class="{{str_contains(Request::path(), 'admin/category') ? 'active' : ''}}">
                         <a href="{{route('admin-category')}}" aria-expanded="true"><i class="ti-dashboard"></i><span>Quản lý danh mục</span></a>
                     </li>
-{{--                    <li class="{{str_contains(Request::path(), 'admin/tabhome') ? 'active' : ''}}">--}}
-{{--                        <a href="{{route('admin-tabhome')}}" aria-expanded="true"><i class="ti-dashboard"></i><span>Quản lý Tab home</span></a>--}}
-{{--                    </li>--}}
+                    <li class="{{str_contains(Request::path(), 'admin/tabhome') ? 'active' : ''}}">
+                        <a href="{{route('admin-tabhome')}}" aria-expanded="true"><i class="ti-dashboard"></i><span>Quản lý Tab home</span></a>
+                    </li>
 {{--                    <li class="{{str_contains(Request::path(), 'admin/tag') ? 'active' : ''}}">--}}
 {{--                        <a href="{{route('admin-tag')}}" aria-expanded="true"><i class="ti-dashboard"></i><span>Quản lý tag</span></a>--}}
 {{--                    </li>--}}

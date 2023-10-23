@@ -762,6 +762,8 @@ footer .back-to-top { background-color: #268102 !important;}
 }
 .book-infor .prodouct-name{ padding-top: 10px;}
 .category-list .ddc-list-10 .ddc-list-item:nth-child(3n+1){ clear: both;}
+.section-news .blogs-content .heading h2:after{ right: -37px !important;    height: 39px;}
+.section-news .blogs-content .heading h2 { padding-right: 20px;}
 
 
 /*Mobile*/

@@ -15,10 +15,10 @@ class AddAuthorsymbolToBooksTable extends Migration
     {
         Schema::table('books', function (Blueprint $table) {
             //
-            $table->string('book_authorsymbol',50)->nullable()->comment('Ký hiệu tác giả');
-            $table->string('category_name',50)->nullable()->comment('DDC');
-            $table->string('book_language')->nullable()->comment('Ngôn ngữ');
-            $table->integer('book_number')->nullable()->comment('Số cuốn');
+//            $table->string('book_authorsymbol',50)->nullable()->comment('Ký hiệu tác giả');
+//            $table->string('category_name',50)->nullable()->comment('DDC');
+//            $table->string('book_language')->nullable()->comment('Ngôn ngữ');
+//            $table->integer('book_number')->nullable()->comment('Số cuốn');
         });
     }
 
