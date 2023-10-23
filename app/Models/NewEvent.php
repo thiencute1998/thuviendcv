@@ -12,7 +12,7 @@ class NewEvent extends Model
     // Table lich phung vu
     protected $table = 'news';
 
-    protected $fillable = ['name', 'content', 'slug', 'new_type', 'status', 'views', 'image', 'title', 'keywords', 'description'];
+    protected $fillable = ['name', 'content', 'slug', 'new_type', 'status', 'views', 'image', 'title', 'keywords', 'description', 'order'];
 
     public $timestamps = true;
 }

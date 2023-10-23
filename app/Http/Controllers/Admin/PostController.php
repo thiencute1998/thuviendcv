@@ -55,7 +55,7 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
-        $params = $request->only('name', 'image', 'category', 'content', 'status', 'category_id', 'title', 'keywords', 'description', 'bookcontents', 'subtitle', 'author', 'book_authorsymbol', 'category_name', 'book_language', 'book_number', 'book_episode');
+        $params = $request->only('name', 'image', 'category', 'content', 'status', 'category_id', 'title', 'keywords', 'description', 'bookcontents', 'subtitle', 'author', 'book_authorsymbol', 'category_name', 'book_language', 'book_number', 'book_episode', 'order');
         $this->repository->store($params, $request);
         return redirect()->back()->with('add-success', 'Thêm bài viết thành công !!!');
     }
@@ -66,7 +66,7 @@ class PostController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $params = $request->only('name', 'image', 'category', 'content', 'status', 'category_id', 'title', 'keywords', 'description', 'bookcontents', 'subtitle', 'author', 'book_authorsymbol', 'category_name', 'book_language', 'book_number', 'book_episode');
+        $params = $request->only('name', 'image', 'category', 'content', 'status', 'category_id', 'title', 'keywords', 'description', 'bookcontents', 'subtitle', 'author', 'book_authorsymbol', 'category_name', 'book_language', 'book_number', 'book_episode', 'order');
         $this->repository->update($params, $request, $id);
         return redirect()->back()->with('edit-success', 'Cập nhật bài viết thành công !!!');
     }

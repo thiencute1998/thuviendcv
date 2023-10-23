@@ -26,7 +26,7 @@ class NewController extends Controller
     }
 
     public function store(Request $request) {
-        $params = $request->only('slug','name', 'image', 'new_type', 'content', 'status', 'title', 'keywords', 'description');
+        $params = $request->only('slug','name', 'image', 'new_type', 'content', 'status', 'title', 'keywords', 'description', 'order');
         $this->repository->store($params, $request);
         return redirect()->back()->with('add-success', 'Thêm tin thành công !!!');
     }
@@ -37,7 +37,7 @@ class NewController extends Controller
     }
 
     public function update(Request $request, $id) {
-        $params = $request->only('slug','name', 'image', 'new_type', 'content', 'status', 'title', 'keywords', 'description');
+        $params = $request->only('slug','name', 'image', 'new_type', 'content', 'status', 'title', 'keywords', 'description', 'order');
         $this->repository->update($params, $request, $id);
         return redirect()->back()->with('edit-success', 'Cập nhật tin thành công !!!');
     }

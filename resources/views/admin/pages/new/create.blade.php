@@ -65,13 +65,17 @@
                                             <label for="services" class="col-form-label">Hinh ảnh</label>
                                             <input type="file" name="image" class="form-control">
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <label for="services" class="col-form-label">Trạng thái</label>
                                             <select class="form-control" name="status">
                                                 <option value="1" selected>Hoạt động</option>
                                                 <option value="2">Nổi bật</option>
                                                 <option value="0">Không hoạt động</option>
                                             </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label for="services" class="col-form-label">Thứ tự</label>
+                                            <input type="text" name="order" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row form-group">

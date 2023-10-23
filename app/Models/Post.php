@@ -13,7 +13,7 @@ class Post extends Model
     protected $table = 'books';
 
     protected $fillable = ['name', 'slug', 'status', 'content', 'image', 'category_id', 'views', 'author', 'title', 'keywords', 'description','bookcontents'
-        , 'subtitle', 'author', 'book_authorsymbol', 'category_name', 'book_language', 'book_number', 'book_episode'];
+        , 'subtitle', 'author', 'book_authorsymbol', 'category_name', 'book_language', 'book_number', 'book_episode', 'order'];
 
     public $timestamps = true;
     public function category() {

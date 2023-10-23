@@ -69,6 +69,10 @@
                                                 <option value="0">Không hoạt động</option>
                                             </select>
                                         </div>
+                                        <div class="col-md-3">
+                                            <label for="services" class="col-form-label">Thứ tự</label>
+                                            <input type="text" name="order" class="form-control" value="{{$post->order}}">
+                                        </div>
                                     </div>
 {{--                                    <div class="row form-group">--}}
 {{--                                        <div class="col-md-12">--}}
