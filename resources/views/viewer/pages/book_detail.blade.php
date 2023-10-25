@@ -17,7 +17,7 @@
                             <span><i class="fa fa-angle-right"></i></span>
                         </li>
 
-                        <li><strong itemprop="title">Sách văn học</strong></li>
+                        <li><strong itemprop="title">{{$bookDetail->category_name}}</strong></li>
 
                     </ul>
                 </div>
