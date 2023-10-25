@@ -176,6 +176,7 @@
         </div>
     </section>
 
+    @foreach($homes as $home)
     <section class="awe-section-6">
         <div class="section_product">
             <div class="container padding-top">
@@ -184,7 +185,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="section-head-1">
-                                    <h2>Sách mới nhất</h2>
+                                    <h2>{{$home->name}}</h2>
                                 </div>
                             </div>
                             <div class="col-md-12 e-tabs not-dqtab ajax-tab-3" data-section="ajax-tab-3"
@@ -195,28 +196,28 @@
                                             <div class="section-tour-owl3 products products-view-grid owl-carousel"
                                                  data-lg-items='5' data-md-items='5' data-sm-items='3' data-xs-items="2"
                                                  data-xss-items="2" data-margin='10' data-nav="true" data-dot="false">
-                                                @foreach($newBooks as $newBook)
+                                                @foreach($home->books as $book)
                                                     <div class="item">
                                                         <div class="ant-product-item">
                                                             <div class="product_row">
                                                                 <div class="item">
                                                                     <div class="item-inner">
                                                                         <div class="image-container">
-                                                                            <a href="{{route('get-cate', ['cate'=> $newBook->slug])}}"
+                                                                            <a href="{{route('get-cate', ['cate'=> $book->slug])}}"
                                                                                class="product-item-photo">
                                                                                 <img
                                                                                     class="product-image-photo img-responsive center-block"
-                                                                                    src="{{ asset('upload/admin/post/image/' . $newBook->image) }}"
-                                                                                    data-lazyload="{{ asset('upload/admin/post/image/' . $newBook->image) }}"
-                                                                                    alt="{{$newBook->name}}"/>
+                                                                                    src="{{ asset('upload/admin/post/image/' . $book->image) }}"
+                                                                                    data-lazyload="{{ asset('upload/admin/post/image/' . $book->image) }}"
+                                                                                    alt="{{$book->name}}"/>
                                                                             </a>
                                                                         </div>
                                                                         <div class="box-info">
                                                                             <h2 class="product-item-name">
-                                                                                <a title="{{$newBook->name}}"
-                                                                                   href="{{route('get-cate', ['cate'=> $newBook->slug])}}"
+                                                                                <a title="{{$book->name}}"
+                                                                                   href="{{route('get-cate', ['cate'=> $book->slug])}}"
                                                                                    class="product-item-link">
-                                                                                    {{$newBook->name}}
+                                                                                    {{$book->name}}
                                                                                 </a>
                                                                             </h2>
                                                                             <div class="product-reviews-summary">
@@ -231,7 +232,7 @@
                                                                                     <span class="special-price">
                                                                                         <span class="price-container">
                                                                                             <span class="price-wrapper-1">
-                                                                                                Tác giả: <span class="price">{{$newBook->author}}</span>
+                                                                                                Tác giả: <span class="price">{{$book->author}}</span>
                                                                                             </span>
                                                                                         </span>
                                                                                     </span>
@@ -261,97 +262,7 @@
             </div>
         </div>
     </section>
-
-    <section class="awe-section-8">
-        <div class="section_product">
-            <div class="container padding-top">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-head-1">
-                                    <h2>Sách hay nhất</h2>
-                                </div>
-                            </div>
-                            <div class="col-md-12 e-tabs not-dqtab ajax-tab-5" data-section="ajax-tab-5"
-                                 data-view="grid_4">
-                                <div class="content margin-content">
-                                    <div>
-                                        <div class="tab-1 tab-content">
-                                            <div class="section-tour-owl3 products products-view-grid owl-carousel"
-                                                 data-lg-items='5' data-md-items='5' data-sm-items='3' data-xs-items="2"
-                                                 data-xss-items="2" data-margin='10' data-nav="true" data-dot="false">
-                                                @foreach($greatBooks as $greatBook)
-                                                    <div class="item">
-
-                                                        <div class="ant-product-item">
-                                                            <div class="product_row">
-                                                                <div class="item">
-                                                                    <div class="item-inner">
-                                                                        <div class="image-container">
-                                                                            <a href="{{route('get-cate', ['cate'=> $greatBook->slug])}}"
-                                                                               class="product-item-photo">
-                                                                                <img
-                                                                                    class="product-image-photo img-responsive center-block"
-                                                                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                                                                                    data-lazyload="{{asset('upload/admin/post/image/' . $greatBook->image)}}"
-                                                                                    alt="Chao đèn OSKAR"/>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="box-info">
-                                                                            <h2 class="product-item-name">
-                                                                                <a title="{{$greatBook->name}}"
-                                                                                   href="{{route('get-cate', ['cate'=> $greatBook->slug])}}"
-                                                                                   class="product-item-link">
-                                                                                    {{$greatBook->name}}
-                                                                                </a>
-                                                                            </h2>
-                                                                            <div class="product-reviews-summary">
-                                                                                <div class="rating-summary">
-                                                                                    <div
-                                                                                        class="haravan-product-reviews-badge"
-                                                                                        data-id="1017908248"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="item-price-1">
-                                                                                <div class="price-box price-final_price">
-                                                                                    <span class="special-price">
-                                                                                        <span class="price-container">
-                                                                                            <span class="price-wrapper-1">
-                                                                                                Tác giả: <span class="price">{{$greatBook->author}}</span>
-                                                                                            </span>
-                                                                                        </span>
-                                                                                    </span>
-
-
-                                                                                </div>
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                @endforeach
-                                            </div>
-
-
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    @endforeach
     <section class="awe-section-10">
         <section class="section-news margin-0">
             <div class="container">

@@ -28,14 +28,37 @@ class IndexRepository extends BaseRepository {
     }
 
     public function index() {
+        $query = $this->model->query();
+        $query->where('status', 1);
+
+        $query->with(['categories']);
+        $query->orderBy('order', 'asc');
+        $homes = $query->get()->map(function($value) {
+            $categories =  $value->categories;
+            if($categories) {
+                $ids = [];
+                foreach ($categories as $category) {
+                    $ids[] = $category->id;
+
+                }
+                $q = DB::table('books')
+                    ->whereIn('category_id', $ids)
+                    ->orderBy('order', 'desc')
+                    ->get()
+                    ->take(15)
+                    ->toArray();
+
+                $value->books = $q;
+            }
+            return $value;
+        });
         $categories = Category::where('status', 1)->where('level', 1)->orderBy('order', 'asc')->get();
         $links = Link::where('status',1)->orderBy('created_at', 'asc')->get();
-        $newBooks = Post::where('status', 1)->orderBy('created_at', 'asc')->take(10)->get();
         $greatBooks = Post::where('status', 1)->orderBy('views', 'desc')->take(10)->get(); // Lay chua dung
         $news = NewEvent::where('status', 1)->where('new_type', 1)->orderBy('order', 'asc')->take(10)->get();
         $videos = NewEvent::where('status', 1)->where('new_type', 2)->orderBy('order', 'asc')->take(10)->get();
         $giomc = NewEvent::where('status', 1)->where('new_type', 3)->get();
-        return view('viewer.pages.index', compact('categories', 'links', 'newBooks', 'greatBooks', 'news', 'videos', 'giomc'));
+        return view('viewer.pages.index', compact('homes', 'categories', 'links', 'greatBooks', 'news', 'videos', 'giomc'));
     }
     public function getCate($cate) {
         $parentCate = Category::where('status', 1)->where('slug', $cate)->first();
