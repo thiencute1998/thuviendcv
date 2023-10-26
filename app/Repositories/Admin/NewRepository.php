@@ -28,6 +28,10 @@ class NewRepository extends BaseRepository {
             $status = $searchParams['status'];
             $query->where('status', '=', "$status");
         }
+        if (isset($searchParams['created_at'])) {
+            $created_at = date("Y-m-d", strtotime($searchParams['created_at']));
+            $query->WhereRaw('str_to_date(created_at,"%Y-%m-%d") = "'.$created_at.'"');
+        }
         $query->orderBy('updated_at', 'desc');
         $news = $query->paginate(10);
         return view('admin.pages.new.index', compact('news'));

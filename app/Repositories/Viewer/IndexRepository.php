@@ -43,6 +43,7 @@ class IndexRepository extends BaseRepository {
                 }
                 $q = DB::table('books')
                     ->whereIn('category_id', $ids)
+                    ->orderBy('created_at', 'desc')
                     ->orderBy('order', 'desc')
                     ->get()
                     ->take(15)

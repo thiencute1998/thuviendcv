@@ -28,6 +28,10 @@
                                 <input type="text" name="search" placeholder="Search..." value="{{ request()->input('search') }}">
                             </div>
                             <div class="col-md-3">
+                                <span> Ngày đăng: </span>
+                                <input type="text" id="my-date" name="created_at" class="form-control" placeholder="Ngày đăng">
+                            </div>
+                            <div class="col-md-3">
                                 <span> Trạng thái: </span>
                                 <select class="form-control" name="status">
                                     <option value="">Chọn trạng thái</option>

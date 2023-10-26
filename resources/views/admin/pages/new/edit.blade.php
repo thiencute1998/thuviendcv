@@ -53,7 +53,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="services" class="col-form-label">Loại tin</label>
-                                            <select class="form-control" name="new_type" data-value="{{ $new->new_type }}">
+                                            <select class="form-control item-new_type" name="new_type" data-value="{{ $new->new_type }}">
                                                 <option value="1" selected>Tin tức</option>
                                                 <option value="2">Video</option>
                                                 <option value="3">Giờ mở cửa</option>
@@ -142,6 +142,9 @@
 
             let status = $('.item-status').data('value');
             $('.item-status').val(status);
+
+            let new_type = $('.item-new_type').data('value');
+            $('.item-new_type').val(new_type);
 
             $( "#my-date" ).datepicker({
             });
