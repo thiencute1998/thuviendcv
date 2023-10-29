@@ -1,4 +1,13 @@
 @extends('viewer.layouts.master')
+@section('meta')
+    <title>{{$config->name}} </title>
+    <meta name="keywords" content="{{$config->keyword}}"/>
+    <meta name="description" content="{{$config->description}}">
+    <meta property="og:title" content="{{$config->name}}"/>
+    <meta property="og:keyword" content="{{$config->keyword}}"/>
+    <meta property="og:description" content="{{$config->description}}"/>
+    <meta property="og:site_name" content="{{$config->name}}"/>
+@endsection
 @section('main-content')
     <section class="awe-section-3">
         <div class="section_slide">

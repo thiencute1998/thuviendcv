@@ -1,4 +1,14 @@
 @extends('viewer.layouts.master')
+@section('meta')
+    <title>{{$bookDetail->title ? $bookDetail->title : $config->name}} </title>
+    <meta name="keywords" content="{{$bookDetail->keywords ? $bookDetail->keywords : $config->keyword}}"/>
+    <meta name="description" content="{{$bookDetail->description ? $bookDetail->description : $config->description}}">
+    <meta property="og:title" content="{{$bookDetail->title ? $bookDetail->title : $config->name}}"/>
+    <meta property="og:keyword" content="{{$bookDetail->keywords ? $bookDetail->keywords : $config->keyword}}"/>
+    <meta property="og:description" content="{{$bookDetail->description ? $bookDetail->description : $config->description}}"/>
+    <meta property="og:url" content="{{route('get-cate', ['cate'=> $bookDetail->slug])}}"/>
+    <meta property="og:site_name" content="{{$bookDetail->name}}"/>
+@endsection
 @section('main-content')
     <style type="text/css">
         .show-cookie-message {

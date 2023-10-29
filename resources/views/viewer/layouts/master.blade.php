@@ -3,23 +3,16 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>THƯ VIỆN NHÀ ỨNG SINH THÁNH PHÊRÔ NGUYỄN VĂN TỰ </title>
-    <!-- ================= Page description ================== -->
-    <meta name="description" content="">
-    <!-- ================= Meta ================== -->
-    <meta name="keywords" content=", "/>
-    <link rel="canonical" href="https://thuvienabc.com/"/>
+    @yield('meta')
+    <link rel="canonical" href="https://thuviengpbacninh.org/"/>
     <meta name='revisit-after' content='1 days'/>
     <meta name="robots" content="noodp,index,follow"/>
     <!-- ================= Favicon ================== -->
     <link rel="icon" href="//theme.hstatic.net/1000343108/1000435493/14/favicon.png?v=230" type="image/x-icon"/>
     <meta property="og:type" content="website">
-    <meta property="og:title" content="THƯ VIỆN NHÀ ỨNG SINH THÁNH PHÊRÔ NGUYỄN VĂN TỰ">
     <meta property="og:image" content="http://theme.hstatic.net/1000343108/1000435493/14/logo.png?v=230">
     <meta property="og:image:secure_url" content="https://theme.hstatic.net/1000343108/1000435493/14/logo.png?v=230">
-    <meta property="og:description" content="">
-    <meta property="og:url" content="https://thuvienabc.com/">
-    <meta property="og:site_name" content="">
+    <meta property="og:url" content="https://thuviengpbacninh.org/">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('assets/viewer/style/style.css') }}">
