@@ -2,6 +2,10 @@
 /public/hot
 /public/storage
 /public/upload
+/public/userfiles
+/public/vendor/laravel-filemanager/files
+/public/vendor/laravel-filemanager/images
+/public/vendor/laravel-filemanager/img
 /storage/*.key
 /vendor
 .env

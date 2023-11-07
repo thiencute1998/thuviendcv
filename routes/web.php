@@ -36,13 +36,17 @@ use App\Http\Controllers\Admin\NewController;
 //    return view('admin.pages.product.products', compact('products'));
 //});
 
+Route::group(['prefix' => 'laravel-filemanager'], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
 Route::get('admin/login', [AuthController::class, 'index'])->name('login-index');
 
 Route::post('admin/login', [AuthController::class, 'login'])->name('login-auth');
 Route::get('admin/logout', [AuthController::class, 'logout'])->name('logout-auth');
 
 
-Route::prefix('admin')->middleware(['checkLogin'])->group(function () {
+Route::prefix('admin')->group(function () {
     Route::get('/', function() {
         return view('admin.index');
     })->name('admin-index');
